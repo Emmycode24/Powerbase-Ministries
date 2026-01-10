@@ -18,7 +18,7 @@ const Navbar = () => {
               className="h-10 w-auto"
             />
             <span className="hidden sm:block font-bold text-lg text-[var(--purple)]">
-              Powerbase Ministries
+              Powerbase Ministry International
             </span>
           </Link>
 

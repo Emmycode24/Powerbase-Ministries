@@ -18,8 +18,8 @@ const Home = () => {
       >
         <div className="bg-black/40 p-8 rounded-xl max-w-3xl">
           <img src={logo} alt="Powerbase Ministries" className="mx-auto h-24 mb-4 rounded-full shadow-lg" />
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Welcome to Powerbase Ministries International</h1>
-          <p className="text-lg sm:text-xl mb-6">Empowering lives, transforming communities, and spreading the Gospel</p>
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4">Welcome to Powerbase Ministry International</h1>
+          <p className="text-lg sm:text-xl mb-6">Discover, Recover and Shape Destinies.</p>
           <Link
             to="/events"
             className="bg-white text-purple-600 font-bold px-6 py-3 rounded-full shadow-lg hover:scale-105 hover:shadow-xl transition"
@@ -41,7 +41,7 @@ const Home = () => {
           <div>
             <h2 className="text-4xl font-bold text-purple-600 mb-4 font-vend-sans fs-2">Our Mission</h2>
             <p className="mb-4 weight-500 fs-2">
-              At Powerbase Ministries International, we are committed to nurturing faith, inspiring purpose, and
+              At Powerbase Ministry International, we are committed to nurturing faith, inspiring purpose, and
               fostering a community that uplifts everyone. Join us in our journey to empower lives and build a
               strong foundation in Christ.
             </p>
@@ -49,15 +49,7 @@ const Home = () => {
               From weekly services to special vigils, our church provides opportunities to grow spiritually,
               connect with others, and make a difference in the world.
             </p>
-            <p className="mb-4 fs-2">
-              At Powerbase Ministries International, we are committed to nurturing faith, inspiring purpose, and
-              fostering a community that uplifts everyone. Join us in our journey to empower lives and build a
-              strong foundation in Christ.
-            </p>
-            <p className="mb-4 fs-2">
-              From weekly services to special vigils, our church provides opportunities to grow spiritually,
-              connect with others, and make a difference in the world.
-            </p>
+           
             <Link
               to="/about"
               className="text-purple-600 font-bold hover:underline"
@@ -102,7 +94,7 @@ const Home = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About */}
           <div>
-            <h3 className="text-xl font-bold mb-4 font-vend-sans">Powerbase Ministries</h3>
+            <h3 className="text-xl font-bold mb-4 font-vend-sans">Powerbase Ministry International</h3>
             <p className="text-gray-200 font-vend-sans">
               Empowering lives, transforming communities, and spreading the Gospel.
             </p>
@@ -110,9 +102,9 @@ const Home = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-xl font-bold mb-4 font-vend-sans">Contact Us</h3>
-            <p className="font-vend-sans">Email: info@powerbaseministries.org</p>
-            <p className="font-vend-sans">Phone: +234 807 069 7584</p>
+            <h3 className="text-xl font-bold mb-4 font-vend-sans">Contact Us :</h3>
+            <p className="font-vend-sans">Email: info@powerbaseministry.org</p>
+            <p className="font-vend-sans">Phone: +234 803 726 1478</p>
             <p className="font-vend-sans">Address: 16 , olofuntuyi street, baruwa inside, ipaja, Lagos state</p>
           </div>
 
@@ -128,7 +120,7 @@ const Home = () => {
         </div>
 
         <div className="text-center text-gray-300 mt-8 border-t border-white/30 pt-4 font-vend-sans">
-          &copy; {new Date().getFullYear()} Powerbase Ministries International. All rights reserved.
+          &copy; {new Date().getFullYear()} Powerbase Ministry International. All rights reserved.
         </div>
       </footer>
     </div>

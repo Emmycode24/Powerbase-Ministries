@@ -1,8 +1,12 @@
 import { useState, useRef } from "react";
+const isSameDay = (a,b) =>
+  a.getFullYear === b.getFullYear() &&
+a.getMonth === b.getMonth() &&
+a.getDate === b.getDate();
 
 const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-const EventCalendar = ({ events, onSelect }) => {
+const EventCalendar = ({ events = [], onSelect }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
@@ -17,20 +21,20 @@ const EventCalendar = ({ events, onSelect }) => {
   const prevMonth = () => setCurrentDate(new Date(year, month - 1, 1));
   const nextMonth = () => setCurrentDate(new Date(year, month + 1, 1));
 
-  // Swipe handlers
-  const handleTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
-  const handleTouchMove = (e) => { touchEndX.current = e.touches[0].clientX; };
+  const handleTouchStart = (e) =>
+    (touchStartX.current = e.touches[0].clientX);
+  const handleTouchMove = (e) =>
+    (touchEndX.current = e.touches[0].clientX);
   const handleTouchEnd = () => {
-    if (touchStartX.current !== null && touchEndX.current !== null) {
+    if (touchStartX.current && touchEndX.current) {
       const diff = touchStartX.current - touchEndX.current;
       if (diff > 50) nextMonth();
-      else if (diff < -50) prevMonth();
+      if (diff < -50) prevMonth();
     }
     touchStartX.current = null;
     touchEndX.current = null;
   };
 
-  // Event colors
   const getEventColor = (category) => {
     switch (category) {
       case "service":
@@ -42,112 +46,84 @@ const EventCalendar = ({ events, onSelect }) => {
     }
   };
 
-  const getEventsForDay = (day) => {
-    const date = new Date(year, month, day);
-    return events.filter((event) => {
-      const start = new Date(event.startDate);
-      const end = new Date(event.endDate || event.startDate);
-      const inRange = date >= start && date <= end;
-      const weekly = event.recurring === "weekly" && date.getDay() === event.dayOfWeek;
 
-      let monthly = false;
-      if (event.recurring === "monthly") {
-        if (event.weekOfMonth) {
-          const firstDayOfMonth = new Date(year, month, 1).getDay();
-          const firstEventDay = 1 + ((event.dayOfWeek - firstDayOfMonth + 7) % 7);
-          monthly = day === firstEventDay;
-        } else monthly = date.getDate() === start.getDate();
-      }
+    const getEventsForDay = (day) => {
+  const date = new Date(year, month, day);
 
-      return inRange || weekly || monthly;
-    });
-  };
+  return events.filter((event) => {
+    const start = new Date(event.startDate);
+    const end = new Date(event.endDate || event.startDate);
+
+    // WEEKLY EVENTS
+    if (event.recurring === "weekly") {
+      return date.getDay() === event.dayOfWeek;
+    }
+
+    // MONTHLY (FIRST FRIDAY)
+    if (event.recurring === "monthly" && event.weekOfMonth === 1) {
+      const firstDayOfMonth = new Date(year, month, 1).getDay();
+      const firstOccurrence =
+        1 + ((event.dayOfWeek - firstDayOfMonth + 7) % 7);
+
+      return day === firstOccurrence;
+    }
+
+    // ONE-TIME / RANGE EVENTS
+    return isSameDay(date, start) || (date >= start && date <= end);
+  });
+};
+
+ 
 
   return (
     <div
-      className="overflow-x-auto p-6 rounded-xl"
-      style={{
-        background: "linear-gradient(to bottom, #fdf6ff, #f6f0ff)", // subtle purple gradient
-      }}
+      className="bg-white rounded-xl shadow p-4 md:p-6"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Header */}
-      <div className="flex justify-between items-center mb-4">
-        <button className="px-4 py-2 border rounded shadow hover:bg-gray-100 transition">
+      {/* HEADER */}
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <button onClick={prevMonth} className="px-4 py-2 border rounded">
           ←
         </button>
-        <h3 className="text-2xl font-bold text-[var(--purple)] text-center flex-1">
-          {currentDate.toLocaleString("default", { month: "long", year: "numeric" })}
+
+        <h3 className="text-xl md:text-2xl font-bold text-[var(--purple)] text-center">
+          {currentDate.toLocaleString("default", {
+            month: "long",
+            year: "numeric",
+          })}
         </h3>
-        <button className="px-4 py-2 border rounded shadow hover:bg-gray-100 transition">
+
+        <button onClick={nextMonth} className="px-4 py-2 border rounded">
           →
         </button>
       </div>
 
-      {/* Legend */}
-      <div className="flex gap-6 mb-4 justify-center flex-wrap">
-        <div className="flex items-center gap-2">
-          <span className="w-4 h-4 rounded-full bg-purple-600"></span>
-          <span className="text-sm font-medium">Service</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <span className="w-4 h-4 rounded-full bg-yellow-400"></span>
-          <span className="text-sm font-medium">Vigil</span>
-        </div>
+      {/* DESKTOP */}
+      <div className="hidden md:block">
+        <DesktopCalendar
+          daysOfWeek={daysOfWeek}
+          firstDay={firstDay}
+          daysInMonth={daysInMonth}
+          today={today}
+          year={year}
+          month={month}
+          getEventsForDay={getEventsForDay}
+          getEventColor={getEventColor}
+          onSelect={onSelect}
+        />
       </div>
 
-      {/* Days of Week */}
-      <div className="grid grid-cols-7 gap-2 mb-2 text-center font-semibold text-gray-700">
-        {daysOfWeek.map((day) => (
-          <div key={day}>{day}</div>
-        ))}
-      </div>
-
-      {/* Calendar Grid */}
-      <div className="grid grid-cols-7 gap-3">
-        {Array(firstDay).fill(null).map((_, i) => (
-          <div key={`empty-${i}`} />
-        ))}
-
-        {Array.from({ length: daysInMonth }, (_, i) => {
-          const day = i + 1;
-          const isToday =
-            day === today.getDate() &&
-            month === today.getMonth() &&
-            year === today.getFullYear();
-
-          const dayEvents = getEventsForDay(day);
-
-          return (
-            <div
-              key={day}
-              className={`bg-white shadow-md hover:shadow-lg transition p-2 rounded-lg min-h-[100px] flex flex-col ${
-                isToday ? "bg-[var(--gold)]/20 border-[var(--gold)] border-2" : ""
-              }`}
-            >
-              <div className="text-sm font-bold mb-2 text-center">{day}</div>
-              <div className="flex flex-col gap-1">
-                {dayEvents.map((event) => (
-                  <button
-                    key={event.id}
-                    onClick={() => onSelect(event)}
-                    className={`${getEventColor(
-                      event.category
-                    )} text-xs px-3 py-1 rounded-full font-semibold truncate
-                    hover:scale-105 hover:shadow-lg transition-transform duration-200`}
-                  >
-                    {event.title}
-                    <span className="ml-1 text-[10px] font-normal uppercase opacity-80">
-                      {event.category}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          );
-        })}
+      {/* MOBILE */}
+      <div className="block md:hidden">
+        <MobileAgenda
+          year={year}
+          month={month}
+          daysInMonth={daysInMonth}
+          getEventsForDay={getEventsForDay}
+          onSelect={onSelect}
+        />
       </div>
     </div>
   );
@@ -155,4 +131,112 @@ const EventCalendar = ({ events, onSelect }) => {
 
 export default EventCalendar;
 
+/* =========================
+   DESKTOP CALENDAR
+========================= */
+const DesktopCalendar = ({
+  daysOfWeek,
+  firstDay,
+  daysInMonth,
+  today,
+  year,
+  month,
+  getEventsForDay,
+  getEventColor,
+  onSelect,
+}) => (
+  <>
+    <div className="grid grid-cols-7 gap-2 mb-2 text-center font-semibold">
+      {daysOfWeek.map((day) => (
+        <div key={day}>{day}</div>
+      ))}
+    </div>
+
+    <div className="grid grid-cols-7 gap-2">
+      {Array(firstDay)
+        .fill(null)
+        .map((_, i) => (
+          <div key={i} />
+        ))}
+
+      {Array.from({ length: daysInMonth }, (_, i) => {
+        const day = i + 1;
+        const isToday =
+          day === today.getDate() &&
+          month === today.getMonth() &&
+          year === today.getFullYear();
+
+        return (
+          <div
+            key={day}
+            className={`border rounded-lg p-2 min-h-[120px] ${
+              isToday ? "bg-yellow-100 border-yellow-400" : ""
+            }`}
+          >
+            <div className="text-sm font-bold text-center mb-1">{day}</div>
+
+            {getEventsForDay(day).map((event) => (
+              <button
+                key={event.id}
+                onClick={() => onSelect(event)}
+                className={`${getEventColor(
+                  event.category
+                )} text-xs w-full px-2 py-1 rounded-full mb-1 truncate`}
+              >
+                {event.title}
+              </button>
+            ))}
+          </div>
+        );
+      })}
+    </div>
+  </>
+);
+
+/* =========================
+   MOBILE AGENDA
+========================= */
+const MobileAgenda = ({
+  year,
+  month,
+  daysInMonth,
+  getEventsForDay,
+  onSelect,
+}) => {
+  const agenda = [];
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const events = getEventsForDay(day);
+    if (events.length) agenda.push({ day, events });
+  }
+
+  if (!agenda.length) {
+    return <p className="text-center text-gray-500">No events this month</p>;
+  }
+
+  return (
+    <div className="space-y-4">
+      {agenda.map(({ day, events }) => (
+        <div key={day} className="border rounded-lg p-4 shadow-sm">
+          <h4 className="font-bold text-[var(--purple)] mb-2">
+            {new Date(year, month, day).toDateString()}
+          </h4>
+
+          {events.map((event) => (
+            <button
+              key={event.id}
+              onClick={() => onSelect(event)}
+              className="block w-full text-left p-3 mb-2 rounded-lg bg-gray-100"
+            >
+              <p className="font-semibold">{event.title}</p>
+              <span className="text-xs text-gray-600 uppercase">
+                {event.category}
+              </span>
+            </button>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
 

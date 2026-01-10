@@ -8,10 +8,11 @@ const Events = () => {
   const [filter, setFilter] = useState("all");
   const [selectedEvent, setSelectedEvent] = useState(null);
 
+  // Filter logic
   const filteredEvents =
     filter === "all"
       ? allEvents
-      : allEvents.filter((e) => e.category === filter);
+      : allEvents.filter((event) => event.category === filter);
 
   return (
     <section className="pt-32 pb-20 max-w-7xl mx-auto px-6">
@@ -19,13 +20,20 @@ const Events = () => {
         Church Calendar
       </h2>
 
-      <EventFilter active={filter} setActive={setFilter} />
+      {/* FILTER (uses ALL events for counts) */}
+      <EventFilter
+        active={filter}
+        setActive={setFilter}
+        events={allEvents}
+      />
 
+      {/* CALENDAR (uses FILTERED events) */}
       <EventCalendar
         events={filteredEvents}
         onSelect={setSelectedEvent}
       />
 
+      {/* MODAL */}
       <EventModal
         event={selectedEvent}
         onClose={() => setSelectedEvent(null)}
@@ -35,4 +43,5 @@ const Events = () => {
 };
 
 export default Events;
+
 
