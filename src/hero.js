@@ -1,6 +1,8 @@
+import React from "react";
 import { motion } from "framer-motion";
+import PropTypes from "prop-types";
 
-const Hero = () => (
+const Hero = React.memo(() => (
   <section className="h-screen flex items-center justify-center bg-gradient-to-r from-purple-900 to-purple-700 text-white">
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -24,6 +26,7 @@ const Hero = () => (
       </div>
     </motion.div>
   </section>
-);
+));
 
+Hero.propTypes = {};
 export default Hero;

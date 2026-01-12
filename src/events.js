@@ -1,18 +1,18 @@
 import { useState } from "react";
-import { events as allEvents } from "./all-events";
+import { useEvents } from "./use-events"; // your hook that stores events
 import EventFilter from "./event-filter";
 import EventCalendar from "./event-calendar";
 import EventModal from "./event-modal";
+import { filterEventsByCategory } from "./event-utils";
 
+import PropTypes from "prop-types";
 const Events = () => {
+  const { events } = useEvents(); // get all events (includes newly added)
   const [filter, setFilter] = useState("all");
   const [selectedEvent, setSelectedEvent] = useState(null);
 
-  // Filter logic
-  const filteredEvents =
-    filter === "all"
-      ? allEvents
-      : allEvents.filter((event) => event.category === filter);
+  // filter events if user selects a category
+  const filteredEvents = filterEventsByCategory(events, filter);
 
   return (
     <section className="pt-32 pb-20 max-w-7xl mx-auto px-6">
@@ -20,20 +20,16 @@ const Events = () => {
         Church Calendar
       </h2>
 
-      {/* FILTER (uses ALL events for counts) */}
-      <EventFilter
-        active={filter}
-        setActive={setFilter}
-        events={allEvents}
-      />
+      {/* Filter buttons */}
+      <EventFilter active={filter} setActive={setFilter} />
 
-      {/* CALENDAR (uses FILTERED events) */}
+      {/* Calendar */}
       <EventCalendar
-        events={filteredEvents}
-        onSelect={setSelectedEvent}
+        events={filteredEvents} // all events or filtered
+        onSelect={setSelectedEvent} // open modal on click
       />
 
-      {/* MODAL */}
+      {/* Modal */}
       <EventModal
         event={selectedEvent}
         onClose={() => setSelectedEvent(null)}
@@ -42,6 +38,6 @@ const Events = () => {
   );
 };
 
+Events.propTypes = {};
 export default Events;
-
 

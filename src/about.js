@@ -1,6 +1,8 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Heart, ShieldCheck, Trophy, Flame, Target, Eye } from "lucide-react";
 import pastorImg from "./pb logo - Copy.jpg";
+import PropTypes from "prop-types";
 
 const pastors = [
   { name: "REV. Dr John Chinedu Oliver", role: "SETMAN", img: pastorImg },
@@ -15,8 +17,7 @@ const coreValues = [
   { title: "Excellence", icon: Trophy },
   { title: "Integrity", icon: ShieldCheck },
 ];
-
-const About = () => {
+const About = React.memo(() => {
   return (
     <section className="pt-32 pb-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-6 space-y-20">
@@ -163,6 +164,7 @@ const About = () => {
       </div>
     </section>
   );
-};
+});
 
+About.propTypes = {};
 export default About;

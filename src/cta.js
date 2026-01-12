@@ -1,4 +1,6 @@
-const CTA = () => (
+import React from "react";
+import PropTypes from "prop-types";
+const CTA = React.memo(() => (
   <section className="py-20 bg-[var(--purple)] text-white text-center">
     <h3 className="text-3xl font-bold mb-4">You Are Welcome Here</h3>
     <p className="mb-6">
@@ -8,6 +10,7 @@ const CTA = () => (
       Get Connected
     </button>
   </section>
-);
+));
 
+CTA.propTypes = {};
 export default CTA;

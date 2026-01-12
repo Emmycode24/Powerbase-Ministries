@@ -4,6 +4,8 @@ import Home from "./home";
 import About from "./about";
 import Contact from "./contact";
 import Events from "./events";
+import AdminDashboard from "./admin-dashboard";
+
 import "./index.css";
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </BrowserRouter>
   );

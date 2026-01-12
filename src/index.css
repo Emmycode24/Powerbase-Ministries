@@ -5,6 +5,11 @@
 :root {
   --purple: #5B2D8B;
   --gold: #F4C430;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --radius: 0.75rem;
 }
 
 body {

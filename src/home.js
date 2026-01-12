@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import heroImg from "./purplebg2.jpg"; // Add a lively church image here
 import logo from "./pb logo - Copy.jpg"; // Your church logo
 import "./index.css";
@@ -127,4 +128,5 @@ const Home = () => {
   );
 };
 
+Home.propTypes = {};
 export default Home;

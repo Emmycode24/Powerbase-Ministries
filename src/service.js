@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import PropTypes from "prop-types";
 
 const services = [
   {
@@ -38,12 +39,12 @@ const Services = () => {
         </motion.h3>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <motion.div
-              key={index}
+              key={service.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.15 }}
+              transition={{ duration: 0.15 }}
               className="border rounded-lg p-6 text-center shadow hover:shadow-lg transition"
             >
               <p className="text-sm uppercase tracking-wide text-gray-500 mb-2">
@@ -63,5 +64,6 @@ const Services = () => {
   );
 };
 
+Services.propTypes = {};
 export default Services;
 

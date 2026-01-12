@@ -1,10 +1,30 @@
-import { useState, useRef } from "react";
-const isSameDay = (a,b) =>
-  a.getFullYear === b.getFullYear() &&
-a.getMonth === b.getMonth() &&
-a.getDate === b.getDate();
+import { useState, useRef, useMemo } from "react";
+import { getEventColor } from "./event-utils";
+import PropTypes from "prop-types";
 
 const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+/**
+ * Normalize a date to noon to avoid timezone issues
+ * @param {string|Date} date - Date to normalize
+ * @returns {Date} Normalized date
+ */
+const normalizeDate = (date) => {
+  const d = new Date(date);
+  d.setHours(12, 0, 0, 0);
+  return d;
+};
+
+/**
+ * Check if two dates are the same day
+ * @param {Date} a
+ * @param {Date} b
+ * @returns {boolean}
+ */
+const isSameDay = (a, b) =>
+  a.getFullYear() === b.getFullYear() &&
+  a.getMonth() === b.getMonth() &&
+  a.getDate() === b.getDate();
 
 const EventCalendar = ({ events = [], onSelect }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -13,10 +33,10 @@ const EventCalendar = ({ events = [], onSelect }) => {
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
-  const today = new Date();
+  const today = useMemo(() => normalizeDate(new Date()), []);
 
-  const firstDay = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const firstDay = useMemo(() => new Date(year, month, 1).getDay(), [year, month]);
+  const daysInMonth = useMemo(() => new Date(year, month + 1, 0).getDate(), [year, month]);
 
   const prevMonth = () => setCurrentDate(new Date(year, month - 1, 1));
   const nextMonth = () => setCurrentDate(new Date(year, month + 1, 1));
@@ -35,68 +55,82 @@ const EventCalendar = ({ events = [], onSelect }) => {
     touchEndX.current = null;
   };
 
-  const getEventColor = (category) => {
-    switch (category) {
-      case "service":
-        return "bg-purple-600 text-white";
-      case "vigil":
-        return "bg-yellow-400 text-black";
-      default:
-        return "bg-gray-400 text-white";
-    }
-  };
+  // getEventColor is now imported from event-utils.js
 
+  /**
+   * Get events for a specific day, handling one-time, weekly, and monthly recurring events
+   * @param {number} day - Day of the month
+   * @returns {Array} Events for the day
+   */
+  const getEventsForDay = useMemo(() => {
+    return (day) => {
+      const currentDay = normalizeDate(new Date(year, month, day));
+      return events.filter((event) => {
+        const start = normalizeDate(event.startDate);
+        const end = normalizeDate(event.endDate || event.startDate);
 
-    const getEventsForDay = (day) => {
-  const date = new Date(year, month, day);
+        // One-time event
+        if (!event.recurring) {
+          return isSameDay(start, currentDay);
+        }
 
-  return events.filter((event) => {
-    const start = new Date(event.startDate);
-    const end = new Date(event.endDate || event.startDate);
+        // Weekly event
+        if (event.recurring === "weekly") {
+          return currentDay.getDay() === event.dayOfWeek;
+        }
 
-    // WEEKLY EVENTS
-    if (event.recurring === "weekly") {
-      return date.getDay() === event.dayOfWeek;
-    }
+        // Monthly event (e.g., first Friday)
+        if (event.recurring === "monthly") {
+          if (event.weekOfMonth) {
+            const firstDayOfMonth = new Date(year, month, 1);
+            const offset =
+              (event.dayOfWeek - firstDayOfMonth.getDay() + 7) % 7;
+            const targetDay = 1 + offset + (event.weekOfMonth - 1) * 7;
+            return day === targetDay;
+          }
+          return currentDay.getDate() === start.getDate();
+        }
 
-    // MONTHLY (FIRST FRIDAY)
-    if (event.recurring === "monthly" && event.weekOfMonth === 1) {
-      const firstDayOfMonth = new Date(year, month, 1).getDay();
-      const firstOccurrence =
-        1 + ((event.dayOfWeek - firstDayOfMonth + 7) % 7);
-
-      return day === firstOccurrence;
-    }
-
-    // ONE-TIME / RANGE EVENTS
-    return isSameDay(date, start) || (date >= start && date <= end);
-  });
-};
-
- 
+        return false;
+      });
+    };
+  }, [events, year, month]);
 
   return (
-    <div
+    <section
       className="bg-white rounded-xl shadow p-4 md:p-6"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      aria-label="Church Events Calendar"
+      tabIndex={0}
     >
       {/* HEADER */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-        <button onClick={prevMonth} className="px-4 py-2 border rounded">
-          ←
+      <div className="flex items-center justify-between mb-6">
+        <button
+          onClick={prevMonth}
+          className="px-4 py-2 border rounded"
+          aria-label="Previous Month"
+        >
+          
         </button>
 
-        <h3 className="text-xl md:text-2xl font-bold text-[var(--purple)] text-center">
+        <h3
+          className="text-xl md:text-2xl font-bold text-[var(--purple)]"
+          aria-live="polite"
+        >
           {currentDate.toLocaleString("default", {
             month: "long",
             year: "numeric",
           })}
         </h3>
 
-        <button onClick={nextMonth} className="px-4 py-2 border rounded">
-          →
+        <button
+          onClick={nextMonth}
+          className="px-4 py-2 border rounded"
+          aria-label="Next Month"
+        >
+          
         </button>
       </div>
 
@@ -125,10 +159,14 @@ const EventCalendar = ({ events = [], onSelect }) => {
           onSelect={onSelect}
         />
       </div>
-    </div>
+    </section>
   );
 };
 
+EventCalendar.propTypes = {
+  events: PropTypes.array,
+  onSelect: PropTypes.func.isRequired,
+};
 export default EventCalendar;
 
 /* =========================
@@ -146,17 +184,17 @@ const DesktopCalendar = ({
   onSelect,
 }) => (
   <>
-    <div className="grid grid-cols-7 gap-2 mb-2 text-center font-semibold">
+    <div className="grid grid-cols-7 gap-2 mb-2 text-center font-semibold" role="row">
       {daysOfWeek.map((day) => (
-        <div key={day}>{day}</div>
+        <div key={day} role="columnheader">{day}</div>
       ))}
     </div>
 
-    <div className="grid grid-cols-7 gap-2">
+    <div className="grid grid-cols-7 gap-2" role="rowgroup">
       {Array(firstDay)
         .fill(null)
         .map((_, i) => (
-          <div key={i} />
+          <div key={`empty-${i}`} />
         ))}
 
       {Array.from({ length: daysInMonth }, (_, i) => {
@@ -166,22 +204,30 @@ const DesktopCalendar = ({
           month === today.getMonth() &&
           year === today.getFullYear();
 
+        const dayEvents = getEventsForDay(day);
+
         return (
           <div
             key={day}
             className={`border rounded-lg p-2 min-h-[120px] ${
               isToday ? "bg-yellow-100 border-yellow-400" : ""
             }`}
+            role="gridcell"
+            aria-selected={isToday}
+            tabIndex={0}
           >
             <div className="text-sm font-bold text-center mb-1">{day}</div>
 
-            {getEventsForDay(day).map((event) => (
+            {dayEvents.map((event) => (
               <button
                 key={event.id}
                 onClick={() => onSelect(event)}
                 className={`${getEventColor(
                   event.category
                 )} text-xs w-full px-2 py-1 rounded-full mb-1 truncate`}
+                title={event.title}
+                aria-label={`View details for ${event.title}`}
+                tabIndex={0}
               >
                 {event.title}
               </button>
@@ -193,21 +239,26 @@ const DesktopCalendar = ({
   </>
 );
 
+DesktopCalendar.propTypes = {
+  daysOfWeek: PropTypes.array.isRequired,
+  firstDay: PropTypes.number.isRequired,
+  daysInMonth: PropTypes.number.isRequired,
+  today: PropTypes.object.isRequired,
+  year: PropTypes.number.isRequired,
+  month: PropTypes.number.isRequired,
+  getEventsForDay: PropTypes.func.isRequired,
+  getEventColor: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired,
+};
 /* =========================
    MOBILE AGENDA
 ========================= */
-const MobileAgenda = ({
-  year,
-  month,
-  daysInMonth,
-  getEventsForDay,
-  onSelect,
-}) => {
+const MobileAgenda = ({ year, month, daysInMonth, getEventsForDay, onSelect }) => {
   const agenda = [];
 
   for (let day = 1; day <= daysInMonth; day++) {
-    const events = getEventsForDay(day);
-    if (events.length) agenda.push({ day, events });
+    const dayEvents = getEventsForDay(day);
+    if (dayEvents.length) agenda.push({ day, events: dayEvents });
   }
 
   if (!agenda.length) {
@@ -239,4 +290,10 @@ const MobileAgenda = ({
     </div>
   );
 };
-
+MobileAgenda.propTypes = {
+  year: PropTypes.number.isRequired,
+  month: PropTypes.number.isRequired,
+  daysInMonth: PropTypes.number.isRequired,
+  getEventsForDay: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired,
+};

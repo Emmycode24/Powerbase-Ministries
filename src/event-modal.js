@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 const EventModal = ({ event, onClose }) => {
   if (!event) return null;
 
@@ -85,6 +86,10 @@ END:VCALENDAR
   );
 };
 
+EventModal.propTypes = {
+  event: PropTypes.object,
+  onClose: PropTypes.func.isRequired,
+};
 export default EventModal;
 
 

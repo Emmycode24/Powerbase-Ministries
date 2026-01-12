@@ -1,10 +1,20 @@
+import React, { useMemo } from "react";
+import PropTypes from "prop-types";
+import { filterEventsByCategory } from "./event-utils";
+/**
+ * EventFilter component for filtering events by category
+ * @param {string} active - Currently active filter
+ * @param {function} setActive - Function to set active filter
+ * @param {Array} events - Array of event objects
+ */
 const EventFilter = ({ active, setActive, events = [] }) => {
+  // Available categories
   const categories = ["all", "service", "vigil"];
 
-  const countEvents = (category) => {
-    if (category === "all") return events.length;
-    return events.filter((e) => e.category === category).length;
-  };
+  // Memoized count of events per category
+  const countEvents = useMemo(() => {
+    return (category) => filterEventsByCategory(events, category).length;
+  }, [events]);
 
   return (
     <div
@@ -14,7 +24,6 @@ const EventFilter = ({ active, setActive, events = [] }) => {
     >
       {categories.map((filter) => {
         const isActive = active === filter;
-
         return (
           <button
             key={filter}
@@ -48,4 +57,9 @@ const EventFilter = ({ active, setActive, events = [] }) => {
   );
 };
 
+EventFilter.propTypes = {
+  active: PropTypes.string.isRequired,
+  setActive: PropTypes.func.isRequired,
+  events: PropTypes.array,
+};
 export default EventFilter;
