@@ -1,0 +1,2 @@
+@tailwind base;@tailwind components;@tailwind utilities;:root{--purple:#5b2d8b;--gold:#f4c430;--spacing-xs:0.25rem;--spacing-sm:0.5rem;--spacing-md:1rem;--spacing-lg:2rem;--radius:0.75rem}body,h1,h2,h3,h4,h5,h6{@apply font-bold}.vend-sans{font-family:Vend Sans,sans-serif;font-optical-sizing:auto;font-style:normal;font-weight:500}
+/*# sourceMappingURL=main.81464282.css.map*/

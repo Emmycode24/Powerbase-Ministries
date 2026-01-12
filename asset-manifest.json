@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/REPO/static/css/main.81464282.css",
+    "main.js": "/REPO/static/js/main.1425ad6d.js",
+    "static/media/purplebg2.jpg": "/REPO/static/media/purplebg2.00d8a4ba2323c1d7262c.jpg",
+    "static/media/pb logo - Copy.jpg": "/REPO/static/media/pb logo - Copy.6866ec9f394387e5f412.jpg",
+    "index.html": "/REPO/index.html",
+    "main.81464282.css.map": "/REPO/static/css/main.81464282.css.map",
+    "main.1425ad6d.js.map": "/REPO/static/js/main.1425ad6d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.81464282.css",
+    "static/js/main.1425ad6d.js"
+  ]
+}
