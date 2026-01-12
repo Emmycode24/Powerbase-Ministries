@@ -9,7 +9,7 @@ import AdminDashboard from "./admin-dashboard";
 import "./index.css";
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Powerbase-Ministries">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
