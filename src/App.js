@@ -12,11 +12,12 @@ function App() {
     <BrowserRouter basename="/Powerbase-Ministries">
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/events" element={<Events />} />
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
