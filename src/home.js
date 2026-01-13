@@ -4,8 +4,11 @@ import heroImg from "./purplebg2.jpg"; // Add a lively church image here
 import logo from "./pb logo - Copy.jpg"; // Your church logo
 import "./index.css";
 import { Link } from "react-router-dom";
+import { useModal } from "./modal-context";
+import { events as allEvents } from "./all-events";
 
 const Home = () => {
+  const { openModal } = useModal();
   return (
     <div className="relative">
       {/* Hero Section */}
@@ -50,7 +53,7 @@ const Home = () => {
               From weekly services to special vigils, our church provides opportunities to grow spiritually,
               connect with others, and make a difference in the world.
             </p>
-           
+
             <Link
               to="/about"
               className="text-purple-600 font-bold hover:underline"
@@ -61,34 +64,74 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services / Highlights Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-50 to-yellow-50 px-6 font-vend-sans">
-        <div className="max-w-6xl mx-auto text-center mb-12">
-          <h2 className="text-4xl font-bold text-purple-600 mb-6">Our Weekly Services</h2>
-          <p className="text-gray-700 max-w-2xl mx-auto">
-            Join our empowering services and experience the transformative power of faith.
-          </p>
-        </div>
+     {/* Weekly Services – Feature Grid */}
+<section className="py-20 bg-[#f5f5f5] px-6 font-vend-sans">
+  <div className="max-w-6xl mx-auto mb-12 text-center">
+    <h2 className="text-4xl font-bold text-purple-600 mb-4">
+      Our Weekly Services
+    </h2>
+    <p className="text-gray-600 max-w-2xl mx-auto">
+      Experience powerful moments of worship, teaching, prayer, and transformation.
+    </p>
+  </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto font-vend-sans">
-          {[
-            { title: "Champion's Hour", day: "Sunday", time: "8:00am - 11:00am" },
-            { title: "Discovery of Destinies", day: "Tuesday", time: "6:00pm - 7:30pm" },
-            { title: "Jesus-Night", day: "Thursday", time: "6:00pm - 7:30pm" },
-            { title: "Morning Dew", day: "Saturday", time: "7:00am - 8:00am" },
-            { title: "Believers Victory Night", day: "First Friday", time: "11:00pm - 3:00am" },
-          ].map((service) => (
-            <div
-              key={service.title}
-              className="bg-white rounded-xl shadow-lg p-6 text-center hover:scale-105 hover:shadow-2xl transition font-vend-sans"
-            >
-              <h3 className="text-xl font-bold text-purple-600 mb-2">{service.title}</h3>
-              <p className="text-gray-700">{service.day}</p>
-              <p className="text-gray-500">{service.time}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+  <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[220px]">
+
+    {/* Champion's Hour */}
+    <div onClick={() => openModal(allEvents.find(e => e.id === 1))} className="row-span-2 bg-purple-100 rounded-3xl p-8 shadow hover:shadow-xl transition cursor-pointer">
+      <h3 className="text-2xl font-bold text-purple-700 mb-4">
+        Champion’s Hour
+      </h3>
+      <p className="text-gray-700 mb-6">
+        A powerful Sunday worship experience filled with the Word, worship, and miracles.
+      </p>
+      <div className="text-sm text-gray-600">
+        <p><strong>Day:</strong> Sunday</p>
+        <p><strong>Time:</strong> 8:00am – 11:00am</p>
+      </div>
+    </div>
+
+    {/* Discovery of Destinies */}
+    <div onClick={() => openModal(allEvents.find(e => e.id === 2))} className="bg-pink-100 rounded-3xl p-6 shadow hover:shadow-xl transition cursor-pointer">
+      <h3 className="text-xl font-bold text-pink-700 mb-2">
+        Discovery of Destinies
+      </h3>
+      <p className="text-gray-700 text-sm mb-4">
+        Midweek service focused on purpose discovery and destiny alignment.
+      </p>
+      <p className="text-sm text-gray-600">
+        Tuesday • 6:00pm – 7:30pm
+      </p>
+    </div>
+
+    {/* Jesus-Night */}
+    <div onClick={() => openModal(allEvents.find(e => e.id === 3))} className="bg-yellow-100 rounded-3xl p-6 shadow hover:shadow-xl transition cursor-pointer">
+      <h3 className="text-xl font-bold text-yellow-700 mb-2">
+        Jesus-Night
+      </h3>
+      <p className="text-gray-700 text-sm mb-4">
+        A worship and prayer encounter centered on the presence of Jesus.
+      </p>
+      <p className="text-sm text-gray-600">
+        Thursday • 6:00pm – 7:30pm
+      </p>
+    </div>
+
+    {/* Believers Victory Night */}
+    <div onClick={() => openModal(allEvents.find(e => e.id === 4))} className="col-span-1 sm:col-span-2 bg-green-100 rounded-3xl p-8 shadow hover:shadow-xl transition cursor-pointer">
+      <h3 className="text-2xl font-bold text-green-700 mb-4">
+        Believers Victory Night
+      </h3>
+      <p className="text-gray-700 mb-4">
+        An all-night vigil of intense prayer, declarations, and spiritual warfare.
+      </p>
+      <p className="text-sm text-gray-600">
+        First Friday • 11:00pm – 3:00am
+      </p>
+    </div>
+
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="bg-purple-600 text-white py-12 px-6 mt-20 font-vend-sans">

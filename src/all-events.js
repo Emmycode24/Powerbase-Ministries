@@ -3,52 +3,44 @@ export const events = [
     id: 1,
     title: "Champion’s Hour",
     category: "service",
-    startDate: "2026-01-04",
-    endDate: "2026-01-04",
-    time: "8:00 AM – 11:00 AM",
-    location: "Main Auditorium",
-    description: "Sunday worship experience",
-    recurring: "weekly",
-    dayOfWeek: 0 // Sunday
+    dayLabel: "Sunday",
+    time: "8:00am – 11:00am",
+    description:
+      "A powerful Sunday worship experience filled with the Word, worship, and miracles.",
+    icon: "🔥",
+    bg: "from-purple-100 to-purple-200",
   },
-
   {
     id: 2,
     title: "Discovery of Destinies",
     category: "service",
-    startDate: "2026-01-06",
-    endDate: "2026-01-06",
-    time: "6:00 PM – 7:30 PM",
-    location: "Church Hall",
-    description: "Midweek teaching service",
-    recurring: "weekly",
-    dayOfWeek: 2 // Tuesday
+    dayLabel: "Tuesday",
+    time: "6:00pm – 7:30pm",
+    description:
+      "Midweek teaching service focused on purpose and destiny alignment.",
+    icon: "📘",
+    bg: "from-pink-100 to-pink-200",
   },
-
   {
     id: 3,
     title: "Jesus-Night",
     category: "service",
-    startDate: "2026-01-08",
-    endDate: "2026-01-08",
-    time: "6:00 PM – 7:30 PM",
-    location: "Main Auditorium",
-    description: "An atmosphere of worship, prayer, and the presence of Jesus.",
-    recurring: "weekly",
-    dayOfWeek: 4 // Thursday
+    dayLabel: "Thursday",
+    time: "6:00pm – 7:30pm",
+    description:
+      "A deep atmosphere of worship, prayer, and the presence of Jesus.",
+    icon: "✨",
+    bg: "from-yellow-100 to-yellow-200",
   },
-
   {
     id: 4,
     title: "Believers Victory Night",
     category: "vigil",
-    startDate: "2026-01-01", // anchor date (any date in month works)
-    endDate: "2026-01-01",
-    time: "11:00 PM – 3:00 AM",
-    location: "Main Auditorium",
-    description: "All-night victory prayers and declarations.",
-    recurring: "monthly",
-    dayOfWeek: 5, // Friday
-    weekOfMonth: 1 // FIRST Friday
-  }
+    dayLabel: "First Friday",
+    time: "11:00pm – 3:00am",
+    description:
+      "An all-night vigil of intense prayer, declarations, and spiritual warfare.",
+    icon: "🙏",
+    bg: "from-green-100 to-green-200",
+  },
 ];
