@@ -60,6 +60,20 @@ const EventFilter = ({ active, setActive, events = [] }) => {
 EventFilter.propTypes = {
   active: PropTypes.string.isRequired,
   setActive: PropTypes.func.isRequired,
-  events: PropTypes.array,
+  events: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      category: PropTypes.string,
+      startDate: PropTypes.string,
+      endDate: PropTypes.string,
+      time: PropTypes.string,
+      location: PropTypes.string,
+      description: PropTypes.string,
+      recurring: PropTypes.string,
+      dayOfWeek: PropTypes.number,
+      weekOfMonth: PropTypes.number,
+    })
+  ),
 };
 export default EventFilter;

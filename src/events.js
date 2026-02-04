@@ -1,12 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useEvents } from "./use-events"; // your hook that stores events
 import EventFilter from "./event-filter";
 import EventCalendar from "./event-calendar";
 import EventModal from "./event-modal";
 import { filterEventsByCategory } from "./event-utils";
 
-import PropTypes from "prop-types";
-const Events = () => {
+
+function Events() {
   const { events } = useEvents(); // get all events (includes newly added)
   const [filter, setFilter] = useState("all");
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -36,8 +36,8 @@ const Events = () => {
       />
     </section>
   );
-};
+}
 
-Events.propTypes = {};
-export default Events;
+// No props used
+export default React.memo(Events);
 

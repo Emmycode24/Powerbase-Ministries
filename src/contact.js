@@ -69,5 +69,5 @@ const Contact = React.memo(() => (
   </section>
 ));
 
-Contact.propTypes = {};
+// No props used
 export default Contact;

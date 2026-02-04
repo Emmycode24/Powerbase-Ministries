@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import PropTypes from "prop-types";
 
 const Hero = React.memo(() => (
   <section className="h-screen flex items-center justify-center bg-gradient-to-r from-purple-900 to-purple-700 text-white">
@@ -28,5 +27,5 @@ const Hero = React.memo(() => (
   </section>
 ));
 
-Hero.propTypes = {};
+// No props used
 export default Hero;

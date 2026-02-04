@@ -2,7 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Heart, ShieldCheck, Trophy, Flame, Target, Eye } from "lucide-react";
 import pastorImg from "./pb logo - Copy.jpg";
-import PropTypes from "prop-types";
 
 const pastors = [
   { name: "REV. Dr John Chinedu Oliver", role: "SETMAN", img: pastorImg },
@@ -166,5 +165,5 @@ const About = React.memo(() => {
   );
 });
 
-About.propTypes = {};
+// No props used
 export default About;

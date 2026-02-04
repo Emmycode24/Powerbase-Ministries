@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import PropTypes from "prop-types";
 
 const services = [
   {
@@ -64,6 +63,6 @@ const Services = () => {
   );
 };
 
-Services.propTypes = {};
+// No props used
 export default Services;
 

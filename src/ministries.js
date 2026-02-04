@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 const Ministries = React.memo(() => (
   <section className="py-20 bg-gray-100">
     <div className="max-w-7xl mx-auto px-6">
@@ -19,5 +18,5 @@ const Ministries = React.memo(() => (
   </section>
 ));
 
-Ministries.propTypes = {};
+// No props used
 export default Ministries;

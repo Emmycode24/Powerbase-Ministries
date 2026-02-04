@@ -87,7 +87,19 @@ END:VCALENDAR
 };
 
 EventModal.propTypes = {
-  event: PropTypes.object,
+  event: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    category: PropTypes.string,
+    startDate: PropTypes.string,
+    endDate: PropTypes.string,
+    time: PropTypes.string,
+    location: PropTypes.string,
+    description: PropTypes.string,
+    recurring: PropTypes.string,
+    dayOfWeek: PropTypes.number,
+    weekOfMonth: PropTypes.number,
+  }),
   onClose: PropTypes.func.isRequired,
 };
 export default EventModal;
