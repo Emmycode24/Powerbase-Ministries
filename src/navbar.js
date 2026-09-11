@@ -15,10 +15,10 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8 text-gray-700 font-medium">
           <a href={process.env.PUBLIC_URL || "/"} className="hover:text-purple-800">Home</a>
-          <a href={`${process.env.PUBLIC_URL}/about`} className="hover:text-purple-800">About</a>
-          <a href={`${process.env.PUBLIC_URL}/events`} className="hover:text-purple-800">Events</a>
-          <a href={`${process.env.PUBLIC_URL}/contact`} className="hover:text-purple-800">Contact</a>
-          <a href={`${process.env.PUBLIC_URL}/visit`} className="rounded-full bg-purple-800 text-white px-5 py-3 hover:bg-purple-900">Plan a Visit</a>
+          <a href={`${process.env.PUBLIC_URL}/#/about`} className="hover:text-purple-800">About</a>
+          <a href={`${process.env.PUBLIC_URL}/#/events`} className="hover:text-purple-800">Events</a>
+          <a href={`${process.env.PUBLIC_URL}/#/contact`} className="hover:text-purple-800">Contact</a>
+          <a href={`${process.env.PUBLIC_URL}/#/visit`} className="rounded-full bg-purple-800 text-white px-5 py-3 hover:bg-purple-900">Plan a Visit</a>
         </div>
 
         
@@ -37,10 +37,10 @@ const Navbar = () => {
         <div className="md:hidden bg-white shadow-lg border-t border-gray-200">
           <div className="flex flex-col px-6 py-4 space-y-4 text-gray-800 font-medium">
             <a href={process.env.PUBLIC_URL || "/"} onClick={() => setIsOpen(false)}>Home</a>
-            <a href={`${process.env.PUBLIC_URL}/about`} onClick={() => setIsOpen(false)}>About</a>
-            <a href={`${process.env.PUBLIC_URL}/events`} onClick={() => setIsOpen(false)}>Events</a>
-            <a href={`${process.env.PUBLIC_URL}/contact`} onClick={() => setIsOpen(false)}>Contact</a>
-            <a href={`${process.env.PUBLIC_URL}/visit`} onClick={() => setIsOpen(false)}>Plan a Visit</a>
+            <a href={`${process.env.PUBLIC_URL}/#/about`} onClick={() => setIsOpen(false)}>About</a>
+            <a href={`${process.env.PUBLIC_URL}/#/events`} onClick={() => setIsOpen(false)}>Events</a>
+            <a href={`${process.env.PUBLIC_URL}/#/contact`} onClick={() => setIsOpen(false)}>Contact</a>
+            <a href={`${process.env.PUBLIC_URL}/#/visit`} onClick={() => setIsOpen(false)}>Plan a Visit</a>
           </div>
         </div>
       )}

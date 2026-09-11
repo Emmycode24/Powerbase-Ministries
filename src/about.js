@@ -9,7 +9,7 @@ const About = () => {
           <h2 className="text-4xl font-bold text-purple-900 mb-6">Our Mission</h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-4">At Powerbase Ministry International, we are committed to nurturing faith, inspiring purpose, and fostering a community that uplifts everyone. Join us in our journey to empower lives and build a strong foundation in Christ.</p>
           <p className="text-gray-700 text-lg leading-relaxed">From weekly services to special vigils, our church provides opportunities to grow spiritually, connect with others, and make a difference in the world.</p>
-          <a href={`${process.env.PUBLIC_URL}/about`} className="inline-block mt-6 font-semibold text-purple-800 hover:text-purple-950">Learn More About Us →</a>
+          <a href={`${process.env.PUBLIC_URL}/#/about`} className="inline-block mt-6 font-semibold text-purple-800 hover:text-purple-950">Learn More About Us →</a>
         </div>
       </div>
     </section>

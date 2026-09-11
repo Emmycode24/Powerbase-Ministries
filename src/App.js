@@ -10,7 +10,7 @@ import Navbar from "./navbar";
 import { AboutPage, ContactPage, EventsPage, VisitPage } from "./pages";
 
 const App = () => {
-  const currentPath = window.location.pathname.replace(/\/$/, "");
+  const currentPath = (window.location.hash.replace(/^#/, "") || window.location.pathname).replace(/\/$/, "");
 
   if (currentPath.endsWith("/admin")) {
     return <Admin />;
