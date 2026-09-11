@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Powerbase-Ministries/static/css/main.81464282.css",
-    "main.js": "/Powerbase-Ministries/static/js/main.49261306.js",
-    "static/media/purplebg2.jpg": "/Powerbase-Ministries/static/media/purplebg2.00d8a4ba2323c1d7262c.jpg",
-    "static/media/pb logo - Copy.jpg": "/Powerbase-Ministries/static/media/pb logo - Copy.6866ec9f394387e5f412.jpg",
+    "main.css": "/Powerbase-Ministries/static/css/main.ed2c781f.css",
+    "main.js": "/Powerbase-Ministries/static/js/main.ca83e073.js",
+    "static/js/453.cc850a7c.chunk.js": "/Powerbase-Ministries/static/js/453.cc850a7c.chunk.js",
     "index.html": "/Powerbase-Ministries/index.html",
-    "main.81464282.css.map": "/Powerbase-Ministries/static/css/main.81464282.css.map",
-    "main.49261306.js.map": "/Powerbase-Ministries/static/js/main.49261306.js.map"
+    "main.ed2c781f.css.map": "/Powerbase-Ministries/static/css/main.ed2c781f.css.map",
+    "main.ca83e073.js.map": "/Powerbase-Ministries/static/js/main.ca83e073.js.map",
+    "453.cc850a7c.chunk.js.map": "/Powerbase-Ministries/static/js/453.cc850a7c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.81464282.css",
-    "static/js/main.49261306.js"
+    "static/css/main.ed2c781f.css",
+    "static/js/main.ca83e073.js"
   ]
 }
