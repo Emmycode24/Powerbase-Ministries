@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Powerbase-Ministries/static/css/main.ed2c781f.css",
-    "main.js": "/Powerbase-Ministries/static/js/main.ca83e073.js",
+    "main.js": "/Powerbase-Ministries/static/js/main.5a62cad9.js",
     "static/js/453.cc850a7c.chunk.js": "/Powerbase-Ministries/static/js/453.cc850a7c.chunk.js",
     "index.html": "/Powerbase-Ministries/index.html",
     "main.ed2c781f.css.map": "/Powerbase-Ministries/static/css/main.ed2c781f.css.map",
-    "main.ca83e073.js.map": "/Powerbase-Ministries/static/js/main.ca83e073.js.map",
+    "main.5a62cad9.js.map": "/Powerbase-Ministries/static/js/main.5a62cad9.js.map",
     "453.cc850a7c.chunk.js.map": "/Powerbase-Ministries/static/js/453.cc850a7c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ed2c781f.css",
-    "static/js/main.ca83e073.js"
+    "static/js/main.5a62cad9.js"
   ]
 }
