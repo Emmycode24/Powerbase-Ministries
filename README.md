@@ -2,12 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+<<<<<<< HEAD
 ## Admin access
 
 Set `REACT_APP_ADMIN_PASSKEY` in a local `.env` file before starting the app. The admin area is available at `/admin`. Events, pictures, and videos are stored in the current browser's localStorage, so this static version works directly on GitHub Pages but content is not shared between devices.
 
 The passkey is a client-side navigation gate because this app is hosted as a static GitHub Pages site. Do not use it as protection for sensitive data.
 
+=======
+>>>>>>> 583d53d57011b56a51b5fb0e108698aa7ea9b18b
 ## Available Scripts
 
 In the project directory, you can run:

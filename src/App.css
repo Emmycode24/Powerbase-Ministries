@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .App {
   text-align: center;
 }
@@ -36,3 +37,6 @@
     transform: rotate(360deg);
   }
 }
+=======
+/* Cleaned up unused selectors. Use Tailwind classes for styling. */
+>>>>>>> 583d53d57011b56a51b5fb0e108698aa7ea9b18b

@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+<<<<<<< HEAD
   --purple: #5b2d8b;
 }
 
@@ -77,3 +78,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+=======
+  --purple: #5B2D8B;
+  --gold: #F4C430;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --radius: 0.75rem;
+}
+
+body {
+  @apply bg-gray-50 text-gray-800;
+}
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold;
+}
+
+
+.vend-sans {
+  font-family: "Vend Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+>>>>>>> 583d53d57011b56a51b5fb0e108698aa7ea9b18b
