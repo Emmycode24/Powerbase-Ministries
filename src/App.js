@@ -4,6 +4,7 @@ import Hero from "./hero";
 import About from "./about";
 import Messages from "./messages";
 import Contact from "./contact";
+import Giving from "./giving";
 import Footer from "./footer";
 import PublicContent from "./content";
 import Navbar from "./navbar";
@@ -45,6 +46,7 @@ const App = () => {
       <section id="about"><About /></section>
       <section id="messages"><Messages /></section>
       <section id="contact"><Contact /></section>
+      <Giving />
       <PublicContent />
       <Footer />
     </div>
