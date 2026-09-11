@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --purple: #5b2d8b;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes pageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 700ms ease-out both;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.page-reveal,
+.content-reveal,
+.form-transition {
+  animation: pageReveal 650ms ease-out both;
+}
+
+.card-transition {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.card-transition:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(31, 41, 55, 0.12);
+}
+
+.contact-detail-transition {
+  transition: color 200ms ease, transform 200ms ease;
+}
+
+.contact-detail-transition:hover {
+  color: #581c87;
+  transform: translateY(-2px);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
