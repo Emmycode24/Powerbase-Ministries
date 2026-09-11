@@ -34,12 +34,12 @@ export const AboutPage = () => (
 
         <section className="grid md:grid-cols-2 gap-10">
           <article className="group bg-white rounded-xl p-8 shadow hover:shadow-lg hover:bg-purple-500 transition cursor-pointer">
-            <img src="/powerbase-logo.jpg" alt="Our Mission" className="w-24 h-24 object-cover rounded-full mx-auto mb-5" />
+            <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt="Our Mission" className="w-24 h-24 object-cover rounded-full mx-auto mb-5" />
             <h2 className="text-2xl font-bold text-[var(--purple)] group-hover:text-white transition mb-4">Our Mission</h2>
             <p className="text-gray-700 group-hover:text-white transition-colors duration-300 leading-relaxed">As we praise and worship in spirit and truth, Thoroughly Empowered by the Holy Spirit, Based on the total, holy, infallible Word of God. United to fight corruption in our society and take our world for Jesus. Powerbase is where DESTINIES are DICCOVERED, RECOVERED and SHAPED. True worshippers of the living God are developed for God alone.</p>
           </article>
           <article className="group bg-white rounded-xl p-8 shadow hover:shadow-lg hover:bg-purple-500 transition cursor-pointer">
-            <img src="/powerbase-logo.jpg" alt="Our Vision" className="w-24 h-24 object-cover rounded-full mx-auto mb-5" />
+            <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt="Our Vision" className="w-24 h-24 object-cover rounded-full mx-auto mb-5" />
             <h2 className="text-2xl font-bold text-[var(--purple)] group-hover:text-white transition mb-4">Our Vision</h2>
             <p className="text-gray-700 group-hover:text-white transition-colors duration-300 font-medium">To Discover, Recover, and Shape Destinies.</p>
           </article>
@@ -50,7 +50,7 @@ export const AboutPage = () => (
           <div className="grid md:grid-cols-4 gap-6">
             {aboutValues.map((value) => (
               <article key={value} className="bg-white p-6 rounded-xl shadow text-center hover:shadow-lg transition group cursor-pointer">
-                <img src="/powerbase-logo.jpg" alt={value} className="w-20 h-20 object-cover rounded-full mx-auto mb-4" />
+                <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt={value} className="w-20 h-20 object-cover rounded-full mx-auto mb-4" />
                 <h3 className="font-semibold text-lg group-hover:text-[var(--purple)] transition">{value}</h3>
               </article>
             ))}
@@ -62,7 +62,7 @@ export const AboutPage = () => (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12">
             {pastors.map(([name, role]) => (
               <article key={name} className="text-center bg-white rounded-xl shadow-lg p-6 transition cursor-pointer">
-                <img src="/powerbase-logo.jpg" alt={name} className="w-48 h-48 rounded-full object-cover mx-auto mb-4 shadow-lg" />
+                <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt={name} className="w-48 h-48 rounded-full object-cover mx-auto mb-4 shadow-lg" />
                 <h3 className="text-2xl font-semibold text-[var(--purple)]">{name}</h3>
                 <p className="text-gray-700">{role}</p>
               </article>
