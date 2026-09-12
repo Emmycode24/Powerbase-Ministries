@@ -3,8 +3,8 @@ import React from "react";
 const services = [
   ["Champion’s Hour", "A powerful Sunday worship experience filled with the Word, worship, and miracles.", "Day: Sunday | Time: 8:00am – 11:00am"],
   ["Discovery of Destinies", "Midweek service focused on purpose discovery and destiny alignment.", "Tuesday • 6:00pm – 7:30pm"],
-  ["Jesus-Night", "A worship and prayer encounter centered on the presence of Jesus.", "Thursday • 6:00pm – 7:30pm"],
-  ["Believers Victory Night", "An all-night vigil of intense prayer, declarations, and spiritual warfare.", "First Friday • 11:00pm – 3:00am"],
+  ["Jesus-Night", "A worship and prayer encounter centered on the power of Jesus Name.", "Thursday • 6:00pm – 7:30pm"],
+  ["Believers Victory Night", "An all-night of intense prayer, declarations, and spiritual warfare.", "First Friday • 11:00pm – 3:00am"],
 ];
 
 const Messages = () => (

@@ -13,7 +13,7 @@ const Contact = () => {
     <section id="contact" className="pt-32 pb-20 min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100 relative overflow-hidden">
       <div className="max-w-3xl w-full mx-auto px-6 z-10">
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold text-[var(--purple)] mb-4 text-center animate-fade-in">Prayer &amp; Contact</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-[var(--purple)] mb-4 text-center animate-fade-in">Prayers &amp; Counselling</h2>
           <p className="text-gray-700 text-center mb-10 animate-fade-in">We believe in the power of prayer! Reach out and let us stand with you. Your miracle is just a prayer away.</p>
         </div>
 
@@ -39,7 +39,7 @@ const Contact = () => {
         <p className="my-8 text-gray-500">or</p>
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 animate-fade-in delay-300">
           <p className="flex items-center gap-2 text-gray-700">+234 803 726 1478</p>
-          <p className="flex items-center gap-2 text-gray-700">info@powerbasechurch.org</p>
+          <p className="flex items-center gap-2 text-gray-700">info@powerbaseministryinternational@gmail.com</p>
         </div>
       </div>
     </section>

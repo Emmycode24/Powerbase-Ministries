@@ -14,6 +14,7 @@ const Visit = () => {
       <div className="max-w-3xl w-full mx-auto px-6 z-10">
         <div className="text-center animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-bold text-[var(--purple)] mb-4">Plan a Visit</h1>
+          <p className="text-lg text-gray-700 mb-2">Let’s join us this Sunday as we gather in worship, prayer, and the Word.</p>
           <p className="text-gray-700 mb-10">We look forward to welcoming you. Let us know when you plan to join us.</p>
         </div>
 

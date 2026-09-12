@@ -17,10 +17,10 @@ const Page = ({ children }) => (
 const aboutValues = ["Faith", "Love", "Excellence", "Integrity"];
 
 const pastors = [
-  ["REV. Dr John Chinedu Oliver", "SETMAN"],
-  ["Pastor Priestley Abrahams", "Lead Pastor"],
-  ["Pastor Augustine Chinomso", "Head-quarters Pastor"],
-  ["Pastor Charity Richards", "Pastor"],
+  ["REV. Dr John Chinedu Oliver", "SETMAN"],<br>HEAD-QUARTERS</br>,
+  ["REV. Priestley Abrahams", "Lead Pastor","Ishefun Branch"],
+  ["Pastor Augustine Chinomso", "Branch Pastor", "Baruwa Branch"],
+  ["REV. Charity Richards", "Pastor", "Baruwa Branch"],
 ];
 
 export const AboutPage = () => (
@@ -36,12 +36,12 @@ export const AboutPage = () => (
           <article className="group bg-white rounded-xl p-8 shadow hover:shadow-lg hover:bg-purple-500 transition cursor-pointer">
             <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt="Our Mission" className="w-24 h-24 object-cover rounded-full mx-auto mb-5" />
             <h2 className="text-2xl font-bold text-[var(--purple)] group-hover:text-white transition mb-4">Our Mission</h2>
-            <p className="text-gray-700 group-hover:text-white transition-colors duration-300 leading-relaxed">As we praise and worship in spirit and truth, Thoroughly Empowered by the Holy Spirit, Based on the total, holy, infallible Word of God. United to fight corruption in our society and take our world for Jesus. Powerbase is where DESTINIES are DICCOVERED, RECOVERED and SHAPED. True worshippers of the living God are developed for God alone.</p>
+            <p className="text-gray-700 group-hover:text-white transition-colors duration-300 leading-relaxed">As we praise and worship in spirit and truth, Thoroughly Empowered by the Holy Spirit, based on the total, holy, infallible Word of God as united force to fight corruption in our society and  to take our world for Jesus. Powerbase is where DESTINIES are DICCOVERED, RECOVERED and SHAPED, and true worshippers of the living God are developed for God alone.</p>
           </article>
           <article className="group bg-white rounded-xl p-8 shadow hover:shadow-lg hover:bg-purple-500 transition cursor-pointer">
             <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt="Our Vision" className="w-24 h-24 object-cover rounded-full mx-auto mb-5" />
             <h2 className="text-2xl font-bold text-[var(--purple)] group-hover:text-white transition mb-4">Our Vision</h2>
-            <p className="text-gray-700 group-hover:text-white transition-colors duration-300 font-medium">To Discover, Recover, and Shape Destinies.</p>
+            <p className="text-gray-700 group-hover:text-white transition-colors duration-300 font-medium">To Discover, Recover, and Shape Destinies, re-positioning them for greater opportunities.</p>
           </article>
         </section>
 

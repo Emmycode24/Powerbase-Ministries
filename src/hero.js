@@ -16,7 +16,7 @@ const Hero = () => {
         <p className="text-lg md:text-xl mb-8">
           Discover, Recover and Shape Destinies.
         </p>
-        <a href="#messages" className="inline-block rounded-full bg-white text-purple-800 px-7 py-3 font-semibold hover:bg-yellow-300">Join Us This Sunday</a>
+        <a href={`${process.env.PUBLIC_URL}/#/visit`} className="inline-block rounded-full bg-white text-purple-800 px-7 py-3 font-semibold hover:bg-yellow-300">Join Us This Sunday</a>
       </div>
     </div>
   );
