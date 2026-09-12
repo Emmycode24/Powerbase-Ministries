@@ -40,11 +40,11 @@ const PublicContent = () => {
       <div className="max-w-6xl mx-auto space-y-16">
         {content.programs.length > 0 && (
           <div>
-            <h2 className="text-4xl font-bold text-sky-700 text-center mb-8">Upcoming Programs</h2>
+            <h2 className="text-4xl font-bold text-[var(--royal-blue)] text-center mb-8">Upcoming Programs</h2>
             <div className="grid gap-6 md:grid-cols-2">
               {content.programs.map((program) => (
                 <article key={program.id} className="border border-gray-200 rounded-xl p-6 shadow-sm">
-                  <p className="text-sm font-semibold text-yellow-600 mb-2">{program.date}</p>
+                  <p className="text-sm font-semibold text-[var(--gold)] mb-2">{program.date}</p>
                   <h3 className="text-2xl font-semibold text-gray-900 mb-2">{program.title}</h3>
                   <p className="text-gray-700">{program.description}</p>
                 </article>
@@ -55,7 +55,7 @@ const PublicContent = () => {
 
         {content.pictures.length > 0 && (
           <div>
-            <h2 className="text-4xl font-bold text-sky-700 text-center mb-8">Gallery</h2>
+            <h2 className="text-4xl font-bold text-[var(--royal-blue)] text-center mb-8">Gallery</h2>
             <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
               {content.pictures.map((picture) => (
                 <figure key={picture.id} className="overflow-hidden rounded-xl bg-gray-100">
@@ -69,7 +69,7 @@ const PublicContent = () => {
 
         {content.videos.length > 0 && (
           <div>
-            <h2 className="text-4xl font-bold text-sky-700 text-center mb-8">Videos</h2>
+            <h2 className="text-4xl font-bold text-[var(--royal-blue)] text-center mb-8">Videos</h2>
             <div className="grid gap-6 md:grid-cols-2">
               {content.videos.map((video) => (
                 <article key={video.id}>

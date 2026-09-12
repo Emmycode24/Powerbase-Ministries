@@ -6,7 +6,7 @@ const Hero = () => {
       className="relative min-h-[620px] flex items-center justify-center text-center bg-cover bg-center"
       style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/purplebg2.jpg)` }}
     >
-      <div className="absolute inset-0 bg-purple-950/50"></div>
+      <div className="absolute inset-0 bg-[var(--royal-blue-dark)]/60"></div>
 
       <div className="relative z-10 text-white px-6 max-w-4xl">
         <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt="Powerbase Ministries" className="w-20 h-20 object-cover rounded-full mx-auto mb-6 border-4 border-white" />
@@ -16,7 +16,7 @@ const Hero = () => {
         <p className="text-lg md:text-xl mb-8">
           Discover, Recover and Shape Destinies.
         </p>
-        <a href={`${process.env.PUBLIC_URL}/#/visit`} className="inline-block rounded-full bg-white text-purple-800 px-7 py-3 font-semibold hover:bg-yellow-300">Join Us This Sunday</a>
+        <a href={`${process.env.PUBLIC_URL}/#/visit`} className="inline-block rounded-full bg-white text-[var(--royal-blue)] px-7 py-3 font-semibold hover:bg-[var(--gold)]">Join Us This Sunday</a>
       </div>
     </div>
   );

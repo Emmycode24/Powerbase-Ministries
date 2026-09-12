@@ -14,7 +14,7 @@ const Giving = () => (
       </div>
       <div className="flex justify-between gap-4">
         <dt className="text-slate-500">Account no.</dt>
-        <dd className="font-mono text-xs font-bold tracking-wider text-purple-900 sm:text-sm">003642798</dd>
+        <dd className="font-mono text-xs font-bold tracking-wider text-[var(--royal-blue-dark)] sm:text-sm">003642798</dd>
       </div>
     </dl>
   </aside>

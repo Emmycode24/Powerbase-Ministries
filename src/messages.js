@@ -9,12 +9,12 @@ const services = [
 
 const Messages = () => (
   <section id="messages" className="bg-gray-50 text-center px-6 py-20">
-    <h2 className="text-4xl font-bold text-purple-900 mb-4">Our Weekly Services</h2>
+    <h2 className="text-4xl font-bold text-[var(--royal-blue-dark)] mb-4">Our Weekly Services</h2>
     <p className="text-gray-700 mb-10">Experience powerful moments of worship, teaching, prayer, and transformation.</p>
     <div className="max-w-6xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-4 text-left">
       {services.map(([title, description, schedule]) => (
-        <article key={title} className="bg-white p-6 rounded-xl shadow-md border-t-4 border-yellow-400">
-          <h3 className="text-xl font-semibold text-purple-900 mb-3">{title}</h3>
+        <article key={title} className="bg-white p-6 rounded-xl shadow-md border-t-4 border-[var(--gold)]">
+          <h3 className="text-xl font-semibold text-[var(--royal-blue-dark)] mb-3">{title}</h3>
           <p className="text-gray-700 mb-5">{description}</p>
           <p className="text-sm font-semibold text-gray-900">{schedule}</p>
         </article>
