@@ -19,6 +19,7 @@ const Hero = () => {
       </div>
       <div className="hero-stats"><span>POWERBASE MINISTRY INTERNATIONAL</span><span>DISCOVER · RECOVER · SHAPE</span></div>
       <div className="hero-stamp">POWERBASE<br /><span>MINISTRY INTERNATIONAL</span></div>
+      <a href="#about" className="hero-scroll-cue" aria-label="Scroll to our foundation"><span></span>Scroll to explore</a>
     </div>
   );
 };

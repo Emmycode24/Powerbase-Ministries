@@ -1,11 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 24);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="site-nav">
+    <nav className={`site-nav${isScrolled ? " is-scrolled" : ""}`}>
       <div className="nav-inner">
         <a href={process.env.PUBLIC_URL || "/"} className="brand-lockup">
           <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt="Powerbase Ministries" className="brand-mark" />
