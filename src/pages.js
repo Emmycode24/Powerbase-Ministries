@@ -22,7 +22,7 @@ const pastors = [
 
 export const AboutPage = () => (
   <Page>
-    <section className="inner-page-content about-route pt-32 pb-20">
+    <section className="inner-page-content about-route pb-20">
       <div className="max-w-6xl mx-auto px-6 space-y-20">
         <section className="page-heading">
           <p className="eyebrow text-[var(--royal-blue)]">01 · Who we are</p>

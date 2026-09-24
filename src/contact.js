@@ -30,8 +30,8 @@ const Contact = () => {
             Your prayer request
             <textarea name="message" placeholder="Your prayer request" rows="5" required className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 transition-colors focus:border-[var(--royal-blue)] focus:outline-none" />
           </label>
-          <button type="submit" className="bg-gradient-to-r from-[var(--royal-blue)] to-[var(--gold)] text-white px-8 py-3 rounded-full font-bold shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl">
-            Submit
+          <button type="submit" className="button form-submit-button">
+            {submitted ? "Request received" : "Send request"}<span>↗</span>
           </button>
           {submitted && <p className="mt-4 text-sm text-green-700" role="status">Thank you. We believe with you in prayer.</p>}
         </form>

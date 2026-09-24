@@ -15,10 +15,18 @@
   --royal-blue-dark: #0b1957;
   --page-blue: #f8f3ea;
   --footer-ink: #040a24;
+  --line: rgba(11,25,87,.14);
+  --shadow-soft: 0 18px 50px rgba(4,10,36,.12);
+  --motion-ease: cubic-bezier(.22, 1, .36, 1);
+  --motion-duration: 420ms;
   scroll-behavior: smooth;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 88px;
+}
 
 body {
   margin: 0;
@@ -32,9 +40,22 @@ body {
 ::selection { color: var(--ink); background: var(--gold-light); }
 
 .site-shell { background: var(--paper); overflow: hidden; }
+.site-shell > section,
+.site-shell > .page-hero,
+.site-shell > .route-intro,
+.site-shell > footer,
+.inner-page-content > div > section {
+  scroll-snap-align: start;
+  scroll-margin-top: 88px;
+}
 .page-transition { animation: pageReveal 700ms cubic-bezier(.22, 1, .36, 1) both; }
 section[id] { scroll-margin-top: 24px; }
 a, button, input, textarea, select { transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease, opacity 220ms ease; }
+.scroll-reveal { opacity: 0; transform: translateY(12px); transition: opacity var(--motion-duration) ease-out, transform var(--motion-duration) ease-out; }
+.scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+.scroll-reveal:nth-child(2) { transition-delay: 80ms; }
+.scroll-reveal:nth-child(3) { transition-delay: 160ms; }
+.scroll-reveal:nth-child(4) { transition-delay: 240ms; }
 .inner-page-content { background: var(--paper); }
 .page-heading, .route-intro { max-width: 900px; margin: 0 auto; text-align: center; }
 .about-route .page-heading { position: relative; width: 100vw; max-width: none; margin-left: calc(50% - 50vw); padding: 120px max(32px, calc((100vw - 1280px) / 2)); color: #fff; text-align: left; background: var(--royal-blue-dark); }
@@ -199,7 +220,8 @@ a, button, input, textarea, select { transition: color 220ms ease, background-co
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  *, *::before, *::after { scroll-behavior: auto !important; scroll-snap-type: none !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .scroll-reveal { opacity: 1; transform: none; }
 }
 
 @keyframes fadeIn {
@@ -281,4 +303,58 @@ code {
   .footer-main { grid-template-columns: 1fr; gap: 42px; padding-bottom: 50px; }
   .site-footer { padding: 65px 20px 20px; }
   .footer-bottom { flex-direction: column; gap: 10px; }
+}
+
+/* Shared interaction polish */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 4px; }
+.site-shell > section:not(#hero):nth-of-type(odd) { background-image: radial-gradient(rgba(11,25,87,.045) .7px, transparent .7px); background-size: 12px 12px; }
+.site-nav { transition: background-color 300ms ease, box-shadow 300ms ease; }
+.site-nav.is-scrolled { background: rgba(4,10,36,.98); box-shadow: 0 10px 30px rgba(4,10,36,.16); }
+.nav-inner { transition: height 300ms var(--motion-ease); }
+.site-nav.is-scrolled .nav-inner { height: 62px; }
+.desktop-menu a:not(.nav-cta) { position: relative; padding: 8px 0; }
+.desktop-menu a:not(.nav-cta)::after { position: absolute; right: 0; bottom: 0; left: 0; height: 1px; content: ""; background: var(--gold-light); transform: scaleX(0); transform-origin: right; transition: transform 240ms var(--motion-ease); }
+.desktop-menu a:not(.nav-cta):hover::after { transform: scaleX(1); transform-origin: left; }
+.hero-template { overflow: hidden; isolation: isolate; animation: heroDrift 16s ease-in-out infinite alternate; }
+.hero-scroll-cue { position: absolute; right: max(32px, calc((100% - 1280px) / 2)); bottom: 102px; z-index: 2; display: inline-flex; align-items: center; gap: 12px; color: rgba(255,255,255,.7); text-decoration: none; text-transform: uppercase; letter-spacing: .16em; font-size: 9px; writing-mode: vertical-rl; }
+.hero-scroll-cue span { width: 1px; height: 54px; background: var(--gold-light); animation: scrollCue 1.8s ease-in-out infinite; }
+#about img { transition: filter 400ms ease, transform 500ms var(--motion-ease); }
+#about img:hover { filter: saturate(1); transform: scale(1.025); }
+.button:active { transform: translateY(0); }
+.button span, .text-link span, .giving-link span { display: inline-block; transition: transform 220ms var(--motion-ease); }
+.button:hover span, .text-link:hover span, .giving-link:hover span { transform: translate(3px, -3px); }
+.footer-links a:hover { color: var(--gold-light); transform: translateX(4px); }
+.editorial-panel img, .value-panel img, .pastor-panel img { transition: transform 450ms var(--motion-ease), filter 300ms ease; }
+.editorial-panel:hover img, .value-panel:hover img, .pastor-panel:hover img { filter: saturate(1.15); transform: scale(1.04); }
+.form-submit-button { border: 0; cursor: pointer; }
+.form-submit-button span { margin-left: 12px; }
+.form-section input, .form-section textarea, .form-section select { border-radius: 0 !important; }
+.form-section label { letter-spacing: .04em; }
+.form-section input:focus, .form-section textarea:focus, .form-section select:focus { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,.12); }
+.form-section [role="status"] { color: var(--gold-light); }
+figure { border-radius: 0 !important; }
+figure img { transition: transform 500ms var(--motion-ease), filter 300ms ease; }
+figure:hover img { filter: saturate(1.1); transform: scale(1.04); }
+.menu-toggle span { transition: transform 220ms var(--motion-ease), opacity 180ms ease; }
+.menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+
+@keyframes heroDrift {
+  from { background-size: 100%; }
+  to { background-size: 108%; }
+}
+
+@keyframes scrollCue {
+  0%, 100% { opacity: .35; transform: scaleY(.65); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-template { animation: none; }
+  .hero-scroll-cue span { animation: none; }
+}
+
+@media (max-width: 900px) {
+  .hero-template { animation-duration: 22s; }
+  .hero-scroll-cue { right: 20px; bottom: 135px; }
 }
