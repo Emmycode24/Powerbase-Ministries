@@ -2,23 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
+
 :root {
-  --royal-blue: #123b8f;
-  --royal-blue-dark: #09265f;
-  --gold: #d4a017;
-  --gold-light: #fff4c7;
-  --page-blue: #eef4ff;
+  --ink: #111417;
+  --ink-soft: #1a2024;
+  --paper: #f3f0e9;
+  --paper-deep: #e4dfd3;
+  --gold: #d7ad57;
+  --gold-light: #f0d99f;
+  --royal-blue: #315879;
+  --royal-blue-dark: #172d3b;
+  --page-blue: #e6edf0;
 }
 
 body {
   margin: 0;
-  background: linear-gradient(135deg, #fffdf5 0%, var(--page-blue) 100%);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.site-shell { background: var(--paper); overflow: hidden; }
+
+.site-nav {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 50;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+.inner-page .site-nav { position: fixed; background: var(--ink); }
+
+.nav-inner {
+  width: min(1280px, calc(100% - 64px));
+  height: 88px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-lockup { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; text-transform: uppercase; letter-spacing: .08em; }
+.brand-lockup span { display: flex; flex-direction: column; font-size: 12px; line-height: 1.25; }
+.brand-lockup strong { font-size: 19px; letter-spacing: .02em; }
+.brand-lockup small { color: var(--gold-light); font-size: 9px; letter-spacing: .16em; }
+.brand-mark { width: 42px; height: 42px; border: 1px solid var(--gold); object-fit: cover; border-radius: 50%; }
+.desktop-menu { display: flex; align-items: center; gap: 32px; text-transform: uppercase; letter-spacing: .14em; font-size: 10px; font-weight: 600; }
+.desktop-menu a, .mobile-menu a { color: inherit; text-decoration: none; transition: color 180ms ease; }
+.desktop-menu a:hover, .mobile-menu a:hover { color: var(--gold-light); }
+.nav-cta { padding: 13px 17px; color: var(--ink) !important; background: var(--gold); }
+.nav-cta span { margin-left: 10px; font-size: 14px; }
+.menu-toggle, .mobile-menu { display: none; }
+
+.hero-template {
+  position: relative;
+  min-height: 720px;
+  display: flex;
+  align-items: flex-end;
+  padding: 150px max(32px, calc((100% - 1280px) / 2)) 92px;
+  color: #fff;
+  background-position: center;
+  background-size: cover;
+}
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(9, 17, 20, .86) 0%, rgba(9, 17, 20, .54) 54%, rgba(9, 17, 20, .18) 100%), linear-gradient(0deg, rgba(9, 17, 20, .7), transparent 52%); }
+.hero-content { position: relative; z-index: 1; max-width: 700px; animation: pageReveal 800ms ease-out both; }
+.eyebrow, .footer-label { margin: 0 0 20px; color: var(--gold-light); text-transform: uppercase; letter-spacing: .2em; font-size: 10px; font-weight: 700; }
+.hero-content h1 { margin: 0; font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 8vw, 7rem); line-height: .93; letter-spacing: -.04em; font-weight: 600; }
+.hero-content h1 em, .site-footer h2 em { color: var(--gold-light); font-weight: 600; }
+.hero-intro { max-width: 420px; margin: 28px 0 32px; color: rgba(255,255,255,.77); font-size: 16px; line-height: 1.7; }
+.hero-actions { display: flex; align-items: center; gap: 26px; }
+.button { display: inline-block; padding: 16px 20px; color: var(--ink); text-decoration: none; text-transform: uppercase; letter-spacing: .12em; font-size: 10px; font-weight: 700; background: var(--gold); transition: background 180ms ease, transform 180ms ease; }
+.button:hover { background: var(--gold-light); transform: translateY(-2px); }
+.button span, .text-link span { margin-left: 13px; font-size: 15px; }
+.text-link { color: #fff; text-decoration: none; text-transform: uppercase; letter-spacing: .15em; font-size: 10px; font-weight: 700; }
+.hero-stamp { position: absolute; right: max(32px, calc((100% - 1280px) / 2)); bottom: 100px; z-index: 1; color: rgba(255,255,255,.55); text-align: right; font-size: 12px; letter-spacing: .28em; line-height: 1.7; }
+.hero-stamp span { font-size: 8px; color: var(--gold-light); }
+
+.site-footer { padding: 90px max(32px, calc((100% - 1280px) / 2)) 24px; color: #fff; background: var(--ink); }
+.footer-main { display: grid; grid-template-columns: 1.7fr 1fr .7fr; gap: 60px; padding-bottom: 76px; }
+.site-footer h2 { margin: 0; font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 5vw, 5rem); line-height: 1; font-weight: 600; }
+.footer-contact, .footer-links { color: rgba(255,255,255,.65); font-size: 13px; line-height: 1.7; }
+.footer-contact p { margin: 0 0 8px; }
+.footer-links { display: flex; flex-direction: column; align-items: flex-start; gap: 11px; }
+.footer-links a { color: #fff; text-decoration: none; }
+.footer-bottom { display: flex; justify-content: space-between; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.45); font-size: 10px; text-transform: uppercase; letter-spacing: .14em; }
 
 @keyframes pageReveal {
   from {
@@ -81,4 +152,20 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@media (max-width: 760px) {
+  .nav-inner { width: calc(100% - 40px); height: 76px; }
+  .desktop-menu { display: none; }
+  .menu-toggle { display: flex; width: 40px; height: 40px; padding: 10px 8px; border: 1px solid rgba(255,255,255,.45); background: transparent; flex-direction: column; justify-content: center; gap: 6px; }
+  .menu-toggle span { display: block; width: 100%; height: 1px; background: #fff; }
+  .mobile-menu { display: block; padding: 14px 20px 22px; background: var(--ink); }
+  .mobile-menu > div { display: flex; flex-direction: column; gap: 18px; text-transform: uppercase; letter-spacing: .14em; font-size: 11px; }
+  .mobile-menu .nav-cta { width: max-content; }
+  .hero-template { min-height: 680px; padding: 130px 20px 70px; }
+  .hero-content h1 { font-size: clamp(3.2rem, 16vw, 5rem); }
+  .hero-stamp { right: 20px; bottom: 30px; font-size: 9px; }
+  .footer-main { grid-template-columns: 1fr; gap: 42px; padding-bottom: 50px; }
+  .site-footer { padding: 65px 20px 20px; }
+  .footer-bottom { flex-direction: column; gap: 10px; }
 }

@@ -7,7 +7,7 @@ import PublicContent from "./content";
 import Visit from "./visit";
 
 const Page = ({ children }) => (
-  <div className="min-h-screen bg-[linear-gradient(135deg,var(--gold-light)_0%,var(--page-blue)_52%,#dbe7ff_100%)] pt-20">
+  <div className="site-shell inner-page min-h-screen">
     <Navbar />
     {children}
     <Footer />
