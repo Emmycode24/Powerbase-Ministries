@@ -3,21 +3,22 @@ import React from "react";
 const Hero = () => {
   return (
     <div
-      className="relative min-h-[620px] flex items-center justify-center text-center bg-cover bg-center"
+      className="hero-template"
       style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/purplebg2.jpg)` }}
     >
-      <div className="absolute inset-0 bg-purple-950/50"></div>
+      <div className="hero-overlay"></div>
 
-      <div className="relative z-10 text-white px-6 max-w-4xl">
-        <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt="Powerbase Ministries" className="w-20 h-20 object-cover rounded-full mx-auto mb-6 border-4 border-white" />
-        <h1 className="text-5xl md:text-6xl font-bold mb-4">
-          Welcome to Powerbase Ministry International
-        </h1>
-        <p className="text-lg md:text-xl mb-8">
-          Discover, Recover and Shape Destinies.
-        </p>
-        <a href={`${process.env.PUBLIC_URL}/#/visit`} className="inline-block rounded-full bg-white text-purple-800 px-7 py-3 font-semibold hover:bg-yellow-300">Join Us This Sunday</a>
+      <div className="hero-content">
+        <p className="eyebrow">Founded on faith · built for purpose</p>
+        <h1>Discover.<br /><em>Recover.</em><br />Shape Destinies.</h1>
+        <p className="hero-intro">Powerbase Ministry International nurtures faith, inspires pursuit of God&apos;s will and purpose, and empowers citizens to discover, recover, and shape their destinies.</p>
+        <div className="hero-actions">
+          <a href={`${process.env.PUBLIC_URL}/#/visit`} className="button button-gold">Join Us This Sunday <span>↗</span></a>
+          <a href="#about" className="text-link">Our story <span>↓</span></a>
+        </div>
       </div>
+      <div className="hero-stats"><span>POWERBASE MINISTRY INTERNATIONAL</span><span>DISCOVER · RECOVER · SHAPE</span></div>
+      <div className="hero-stamp">POWERBASE<br /><span>MINISTRY INTERNATIONAL</span></div>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import Hero from "./hero";
 import About from "./about";
 import Messages from "./messages";
 import Contact from "./contact";
-import Giving from "./giving";
+import Giving, { GivingPage } from "./giving";
 import Footer from "./footer";
 import PublicContent from "./content";
 import Navbar from "./navbar";
@@ -39,8 +39,18 @@ const App = () => {
     return <VisitPage />;
   }
 
+  if (currentPath.endsWith("/giving")) {
+    return (
+      <div className="site-shell inner-page min-h-screen">
+        <Navbar />
+        <GivingPage />
+        <Footer />
+      </div>
+    );
+  }
+
   return (
-    <div className="pt-20">
+    <div className="site-shell page-transition">
       <Navbar />
       <section id="hero"><Hero /></section>
       <section id="about"><About /></section>
