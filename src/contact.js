@@ -10,14 +10,14 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="pt-32 pb-20 min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[var(--gold-light)] via-white to-blue-100 relative overflow-hidden">
+    <section id="contact" className="form-section">
       <div className="max-w-3xl w-full mx-auto px-6 z-10">
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold text-[var(--royal-blue-dark)] mb-4 text-center animate-fade-in">Prayers &amp; Counselling</h2>
-          <p className="text-gray-700 text-center mb-10 animate-fade-in">We believe in the power of prayer! Reach out and let us stand with you. Your miracle is just a prayer away.</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-[var(--royal-blue-dark)] mb-4 text-center animate-fade-in">Let&apos;s stand with you.</h2>
+          <p className="text-gray-700 text-center mb-10 animate-fade-in">We believe in the power of prayer. Reach out and let us walk with you in faith.</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl shadow-xl space-y-6 animate-fade-in delay-200">
+        <form onSubmit={handleSubmit} className="editorial-form space-y-6 animate-fade-in delay-200">
           <label className="block text-sm font-medium text-gray-700 mb-4">
             Full Name
             <input name="name" type="text" placeholder="Full Name" required className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2 transition-colors focus:border-[var(--royal-blue)] focus:outline-none" />
@@ -38,8 +38,8 @@ const Contact = () => {
 
         <p className="my-8 text-gray-500">or</p>
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 animate-fade-in delay-300">
-          <p className="flex items-center gap-2 text-gray-700">+234 803 726 1478</p>
-          <p className="flex items-center gap-2 text-gray-700">info@powerbaseministryinternational@gmail.com</p>
+          <p className="flex items-center gap-2 text-gray-700">+2347025005487</p>
+          <p className="flex items-center gap-2 text-gray-700">powerbaseministry6@gmail.com</p>
         </div>
       </div>
     </section>

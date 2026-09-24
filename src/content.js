@@ -40,7 +40,8 @@ const PublicContent = () => {
       <div className="max-w-6xl mx-auto space-y-16">
         {content.programs.length > 0 && (
           <div>
-            <h2 className="text-4xl font-bold text-[var(--royal-blue)] text-center mb-8">Upcoming Programs</h2>
+            <p className="eyebrow text-[var(--royal-blue)] text-center">03 · In the field</p>
+            <h2 className="text-4xl font-bold text-[var(--royal-blue)] text-center mb-8">Ministry in action.</h2>
             <div className="grid gap-6 md:grid-cols-2">
               {content.programs.map((program) => (
                 <article key={program.id} className="border border-gray-200 rounded-xl p-6 shadow-sm">
@@ -69,7 +70,8 @@ const PublicContent = () => {
 
         {content.videos.length > 0 && (
           <div>
-            <h2 className="text-4xl font-bold text-[var(--royal-blue)] text-center mb-8">Videos</h2>
+            <p className="eyebrow text-[var(--royal-blue)] text-center">04 · Tune in</p>
+            <h2 className="text-4xl font-bold text-[var(--royal-blue)] text-center mb-8">Watch. Listen. Be transformed.</h2>
             <div className="grid gap-6 md:grid-cols-2">
               {content.videos.map((video) => (
                 <article key={video.id}>

@@ -16,6 +16,7 @@ const Navbar = () => {
           <a href={process.env.PUBLIC_URL || "/"}>Home</a>
           <a href={`${process.env.PUBLIC_URL}/#/about`}>About</a>
           <a href={`${process.env.PUBLIC_URL}/#/events`}>Events</a>
+          <a href={`${process.env.PUBLIC_URL}/#/giving`}>Donation</a>
           <a href={`${process.env.PUBLIC_URL}/#/contact`}>Contact</a>
           <a href={`${process.env.PUBLIC_URL}/#/visit`} className="nav-cta">Plan a Visit <span>↗</span></a>
         </div>
@@ -36,6 +37,7 @@ const Navbar = () => {
             <a href={process.env.PUBLIC_URL || "/"} onClick={() => setIsOpen(false)}>Home</a>
             <a href={`${process.env.PUBLIC_URL}/#/about`} onClick={() => setIsOpen(false)}>About</a>
             <a href={`${process.env.PUBLIC_URL}/#/events`} onClick={() => setIsOpen(false)}>Events</a>
+            <a href={`${process.env.PUBLIC_URL}/#/giving`} onClick={() => setIsOpen(false)}>Donation</a>
             <a href={`${process.env.PUBLIC_URL}/#/contact`} onClick={() => setIsOpen(false)}>Contact</a>
             <a href={`${process.env.PUBLIC_URL}/#/visit`} onClick={() => setIsOpen(false)} className="nav-cta">Plan a Visit <span>↗</span></a>
           </div>
