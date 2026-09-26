@@ -14,7 +14,12 @@ const Page = ({ children }) => (
   </div>
 );
 
-const aboutValues = ["Faith", "Love", "Courage", "Integrity"];
+const aboutValues = [
+  ["Faith", "✝"],
+  ["Love", "♥"],
+  ["Courage", "⚡"],
+  ["Integrity", "✓"],
+];
 
 const pastors = [
   ["DR. John C. Oliver, ", " The Lead Pastor", ],
@@ -47,9 +52,9 @@ export const AboutPage = () => (
           <p className="eyebrow text-[var(--royal-blue)] text-center">Our Core Values</p>
           <h2 className="text-3xl font-bold text-center text-[var(--royal-blue)] mb-10">The values that guide us.</h2>
           <div className="grid md:grid-cols-4 gap-6">
-            {aboutValues.map((value) => (
+            {aboutValues.map(([value, icon]) => (
               <article key={value} className="value-panel">
-                <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt={value} className="w-20 h-20 object-cover rounded-full mx-auto mb-4" />
+                <span className="value-icon" role="img" aria-label={`${value} icon`}>{icon}</span>
                 <h3 className="font-semibold text-lg group-hover:text-[var(--royal-blue)] transition">{value}</h3>
               </article>
             ))}

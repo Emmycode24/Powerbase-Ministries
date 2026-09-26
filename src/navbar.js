@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className="nav-inner">
         <a href={process.env.PUBLIC_URL || "/"} className="brand-lockup">
           <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt="Powerbase Ministries" className="brand-mark" />
-          <span><strong>Powerbase</strong><small>Ministry International</small></span>
+          <span><strong>POWERBASE</strong><small>MINISTRY INTERNATIONAL</small></span>
         </a>
 
         <div className="desktop-menu">
