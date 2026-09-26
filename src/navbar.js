@@ -16,7 +16,7 @@ const Navbar = () => {
     <nav className={`site-nav${isScrolled ? " is-scrolled" : ""}`}>
       <div className="nav-inner">
         <a href={process.env.PUBLIC_URL || "/"} className="brand-lockup">
-          <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt="Powerbase Ministries" className="brand-mark" />
+          <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt="Powerbase Ministry International" className="brand-mark" />
           <span><strong>POWERBASE</strong><small>MINISTRY INTERNATIONAL</small></span>
         </a>
 

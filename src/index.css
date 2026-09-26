@@ -106,7 +106,7 @@ a, button, input, textarea, select { transition: color 220ms ease, background-co
 
 .nav-inner {
   width: min(1280px, calc(100% - 64px));
-  height: 96px;
+  height: 110px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -114,11 +114,11 @@ a, button, input, textarea, select { transition: color 220ms ease, background-co
 }
 
 .brand-lockup { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; text-transform: uppercase; letter-spacing: .08em; }
-.brand-lockup span { display: flex; flex-direction: column; font-size: 14px; line-height: 1.25; }
-.brand-lockup strong { font-size: 27px; letter-spacing: .02em; }
-.brand-lockup small { color: var(--gold-light); font-size: 11px; letter-spacing: .16em; }
-.brand-mark { width: 60px; height: 60px; border: 0; object-fit: cover; border-radius: 50%; }
-.desktop-menu { display: flex; align-items: center; gap: 24px; text-transform: uppercase; letter-spacing: .08em; font-size: 14px; font-weight: 600; }
+.brand-lockup span { display: flex; flex-direction: column; font-size: 15px; line-height: 1.25; }
+.brand-lockup strong { font-size: 31px; font-weight: 800; letter-spacing: .02em; }
+.brand-lockup small { color: var(--gold-light); font-size: 12px; letter-spacing: .16em; }
+.brand-mark { width: 72px; height: 72px; flex: 0 0 72px; padding: 4px; border: 3px solid var(--gold-light); object-fit: contain; border-radius: 50%; background: #fff; filter: contrast(1.08) saturate(1.05); box-shadow: 0 0 0 3px rgba(246,254,170,.16), 0 8px 18px rgba(0,0,0,.24); }
+.desktop-menu { display: flex; align-items: center; gap: 26px; text-transform: uppercase; letter-spacing: .08em; font-size: 15px; font-weight: 600; }
 .desktop-menu a, .mobile-menu a { color: inherit; text-decoration: none; transition: color 180ms ease; }
 .desktop-menu a:hover, .mobile-menu a:hover { color: var(--gold-light); }
 .nav-cta { padding: 13px 17px; color: var(--royal-blue-dark) !important; background: var(--gold-light); border-radius: 2px; }
@@ -128,10 +128,10 @@ a, button, input, textarea, select { transition: color 220ms ease, background-co
 
 .hero-template {
   position: relative;
-  min-height: 760px;
+  min-height: 680px;
   display: flex;
   align-items: flex-end;
-  padding: 140px max(32px, calc((100% - 1280px) / 2)) 90px;
+  padding: 125px max(32px, calc((100% - 1280px) / 2)) 70px;
   color: #fff;
   background-position: center;
   background-size: cover;
@@ -281,14 +281,18 @@ code {
 }
 
 @media (max-width: 900px) {
-  .nav-inner { width: calc(100% - 40px); height: 88px; }
+  .nav-inner { width: calc(100% - 40px); height: 96px; }
+  .brand-lockup { min-width: 0; gap: 8px; }
+  .brand-lockup strong { font-size: 22px; }
+  .brand-lockup small { font-size: 8px; letter-spacing: .1em; }
+  .brand-mark { width: 60px; height: 60px; flex-basis: 60px; }
   .desktop-menu { display: none; }
-  .menu-toggle { display: flex; width: 40px; height: 40px; padding: 10px 8px; border: 1px solid rgba(255,255,255,.45); background: transparent; flex-direction: column; justify-content: center; gap: 6px; }
+  .menu-toggle { display: flex; width: 40px; height: 40px; flex: 0 0 40px; padding: 10px 8px; border: 1px solid rgba(255,255,255,.45); background: transparent; flex-direction: column; justify-content: center; gap: 6px; }
   .menu-toggle span { display: block; width: 100%; height: 1px; background: #fff; }
   .mobile-menu { display: block; padding: 14px 20px 22px; color: var(--royal-blue-dark); background: var(--paper); border-top: 1px solid rgba(246,254,170,.35); box-shadow: 0 12px 24px rgba(4,10,36,.16); }
   .mobile-menu > div { display: flex; flex-direction: column; gap: 18px; text-transform: uppercase; letter-spacing: .14em; font-size: 13px; }
   .mobile-menu .nav-cta { width: max-content; }
-  .hero-template { min-height: 720px; padding: 110px 20px 58px; }
+  .hero-template { min-height: 640px; padding: 112px 20px 48px; }
   .hero-content h1 { font-size: clamp(3.2rem, 16vw, 5rem); }
   #about, #messages { padding-top: 80px; padding-bottom: 80px; }
   .hero-stamp { right: 20px; bottom: 30px; font-size: 9px; }

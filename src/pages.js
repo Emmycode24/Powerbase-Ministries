@@ -67,7 +67,7 @@ export const AboutPage = () => (
           <div className="grid grid-cols-1 gap-12">
             {pastors.map(([name, role, branch]) => (
               <article key={name} className="text-center">
-                <img src={`${process.env.PUBLIC_URL}/powerbase-logo.jpg`} alt={name} className="w-48 h-48 rounded-full object-cover mx-auto mb-4 shadow-lg" />
+                <img src={`${process.env.PUBLIC_URL}/setman-pic.jpeg`} alt={`${name} portrait`} className="w-60 h-50 rounded-full object-cover mx-auto mb-4 shadow-lg" />
                 <h3 className="text-2xl font-semibold text-[var(--royal-blue)]">{name}</h3>
                 <p className="text-gray-700">{role}</p>
                 <p className="text-sm text-gray-500">{branch}</p>

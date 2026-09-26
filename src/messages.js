@@ -19,7 +19,7 @@ const specialPrograms = [
 const Messages = () => (
   <section id="messages" className="bg-gray-50 text-center px-6 py-20">
     <p className="eyebrow text-[var(--royal-blue)]">  What we do </p>
-    <h2 className="text-4xl font-bold text-[var(--royal-blue-dark)] mb-4">Ministries that move.</h2>
+    <h2 className="text-4xl font-bold text-[var(--royal-blue-dark)] mb-4"> <strong>Ministries</strong> that move.</h2>
     <p className="text-gray-700 mb-10">Every gathering is an invitation to worship, grow, pray, and live out God&apos;s purpose.</p>
     <div className="max-w-6xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-4 text-left">
       {services.map(([title, description, schedule]) => (
@@ -31,7 +31,7 @@ const Messages = () => (
       ))}
     </div>
     <div className="max-w-6xl mx-auto mt-16 text-left">
-      <p className="eyebrow text-[var(--gold-light)] text-center">Special programs</p>
+      <p className="eyebrow text-[var(--gold-light)] text-center"><strong>Special</strong> programs</p>
       <h3 className="text-3xl font-bold text-white text-center mb-8">Programs beyond our regular gatherings.</h3>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {specialPrograms.map(([title, description]) => (
