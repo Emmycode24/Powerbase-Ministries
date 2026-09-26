@@ -14,10 +14,10 @@ const Page = ({ children }) => (
   </div>
 );
 
-const aboutValues = ["Faith", "Love", "Excellence", "Integrity"];
+const aboutValues = ["Faith", "Love", "Courage", "Integrity"];
 
 const pastors = [
-  ["Rev. John Oliver, PHD", "Lead Pastor", "Powerbase Ministry International"],
+  ["DR. John C. Oliver, ", " The Lead Pastor", ],
 ];
 
 export const AboutPage = () => (
@@ -25,7 +25,7 @@ export const AboutPage = () => (
     <section className="inner-page-content about-route pb-20">
       <div className="max-w-6xl mx-auto px-6 space-y-20">
         <section className="page-heading">
-          <p className="eyebrow text-[var(--royal-blue)]">01 · Who we are</p>
+          <p className="eyebrow text-[var(--royal-blue)]"> Who we are</p>
           <h1>About Powerbase Ministry International</h1>
           <p className="max-w-3xl mx-auto text-lg text-gray-700">Powerbase Ministry International is a Christ-centered church committed to raising believers who walk in power, purpose, and love through the Word of God.</p>
         </section>
@@ -44,7 +44,7 @@ export const AboutPage = () => (
         </section>
 
         <section>
-          <p className="eyebrow text-[var(--royal-blue)] text-center">02 · Our foundation</p>
+          <p className="eyebrow text-[var(--royal-blue)] text-center">Our Core Values</p>
           <h2 className="text-3xl font-bold text-center text-[var(--royal-blue)] mb-10">The values that guide us.</h2>
           <div className="grid md:grid-cols-4 gap-6">
             {aboutValues.map((value) => (
@@ -57,8 +57,8 @@ export const AboutPage = () => (
         </section>
 
         <section className="pastor-panel">
-          <p className="eyebrow text-[var(--royal-blue)] text-center">03 · Leadership</p>
-          <h2 className="text-3xl font-bold text-[var(--royal-blue)] mb-12 text-center">Meet the lead pastor.</h2>
+          <p className="eyebrow text-[var(--royal-blue)] text-center"> Leadership</p>
+          <h2 className="text-3xl font-bold text-[var(--royal-blue)] mb-12 text-center">Meet the Setman.</h2>
           <div className="grid grid-cols-1 gap-12">
             {pastors.map(([name, role, branch]) => (
               <article key={name} className="text-center">
@@ -78,9 +78,9 @@ export const AboutPage = () => (
 export const EventsPage = () => (
   <Page>
     <div className="page-hero">
-      <p className="eyebrow">02 · Gather with us</p>
+      <p className="eyebrow">Worship with us</p>
       <h1>Events</h1>
-      <p className="mt-4 text-lg">Join us for worship, teaching, prayer, and transformation.</p>
+      <p className="mt-4 text-lg">Join us for worship, teaching, prayer, and transformational Services.</p>
     </div>
     <Messages />
     <PublicContent />
@@ -89,14 +89,14 @@ export const EventsPage = () => (
 
 export const ContactPage = () => (
   <Page>
-    <div className="route-intro"><p className="eyebrow">06 · Stay connected</p><h1>Enquiries &amp; prayer requests.</h1></div>
+    <div className="route-intro"><p className="eyebrow">Stay connected</p><h1>Enquiries &amp; prayer requests.</h1></div>
     <Contact />
   </Page>
 );
 
 export const VisitPage = () => (
   <Page>
-    <div className="route-intro"><p className="eyebrow">07 · Come as you are</p><h1>Plan a visit.</h1></div>
+    <div className="route-intro"><p className="eyebrow"> Come as you are</p><h1>Plan a visit.</h1></div>
     <Visit />
   </Page>
 );

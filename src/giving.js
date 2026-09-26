@@ -3,7 +3,7 @@ import React from "react";
 const Giving = () => (
   <section className="giving-band">
     <div>
-      <p className="eyebrow">05 · Support the work</p>
+      <p className="eyebrow">Support the work</p>
       <h2>Your giving reaches purpose.</h2>
       <p>Every contribution helps Powerbase nurture faith and shape destinies.</p>
       <a href={`${process.env.PUBLIC_URL}/#/giving`} className="giving-link">Donation <span>↗</span></a>
@@ -28,7 +28,7 @@ const Giving = () => (
 export const GivingPage = () => (
   <section className="donation-page">
     <div className="donation-heading">
-      <p className="eyebrow text-[var(--royal-blue)]">05 · Support the work</p>
+      <p className="eyebrow text-[var(--royal-blue)]">Support the work</p>
       <h1>Your gift reaches purpose.</h1>
       <p>Every contribution fuels worship, outreach, and the relentless pursuit of destinies shaped by God.</p>
     </div>

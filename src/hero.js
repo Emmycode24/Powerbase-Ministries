@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="hero-content">
         <p className="eyebrow">Founded on faith · built for purpose</p>
         <h1>Discover.<br /><em>Recover.</em><br />Shape Destinies.</h1>
-        <p className="hero-intro">Powerbase Ministry International nurtures faith, inspires pursuit of God&apos;s will and purpose, and empowers citizens to discover, recover, and shape their destinies.</p>
+        <p className="hero-intro">Powerbase Ministry International nurtures faith, inspires pursuit of God&apos;s will and purpose, and empowers citizens to expand the kingdom of our lord jesus christ, which is the mandate of the church of jesus christ</p>
         <div className="hero-actions">
           <a href={`${process.env.PUBLIC_URL}/#/visit`} className="button button-gold">Join Us This Sunday <span>↗</span></a>
           <a href="#about" className="text-link">Our story <span>↓</span></a>
