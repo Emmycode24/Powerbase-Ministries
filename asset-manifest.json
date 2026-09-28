@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/Powerbase-Ministries/static/css/main.f1461852.css",
-    "main.js": "/Powerbase-Ministries/static/js/main.bf6c9c07.js",
+    "main.css": "/Powerbase-Ministries/static/css/main.3ae219d4.css",
+    "main.js": "/Powerbase-Ministries/static/js/main.00fd43f7.js",
     "static/js/453.cc850a7c.chunk.js": "/Powerbase-Ministries/static/js/453.cc850a7c.chunk.js",
+    "static/media/setman.jpeg": "/Powerbase-Ministries/static/media/setman.5929e1c046dbbc8fb227.jpeg",
     "index.html": "/Powerbase-Ministries/index.html",
-    "main.f1461852.css.map": "/Powerbase-Ministries/static/css/main.f1461852.css.map",
-    "main.bf6c9c07.js.map": "/Powerbase-Ministries/static/js/main.bf6c9c07.js.map",
+    "main.3ae219d4.css.map": "/Powerbase-Ministries/static/css/main.3ae219d4.css.map",
+    "main.00fd43f7.js.map": "/Powerbase-Ministries/static/js/main.00fd43f7.js.map",
     "453.cc850a7c.chunk.js.map": "/Powerbase-Ministries/static/js/453.cc850a7c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f1461852.css",
-    "static/js/main.bf6c9c07.js"
+    "static/css/main.3ae219d4.css",
+    "static/js/main.00fd43f7.js"
   ]
 }
